@@ -22,26 +22,14 @@
  * | Copyright @ 2013-2019 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server.web;
-
-import com.buession.springcloud.config.server.CloudConfigServer;
-import com.buession.web.filter.ResponseHeadersFilter;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+package com.buession.springcloud.config.server;
 
 /**
  * @author Yong.Teng
  */
-public class ConfigServerInfoFilter extends ResponseHeadersFilter {
+public class CloudConfigServer {
 
-    @Override
-    public Map<String, String> getHeaders(final HttpServletRequest request){
-        Map<String, String> headers = new HashMap<>(1);
+    public final static String VERSION = CloudConfigServer.class.getPackage()
+                .getImplementationVersion();
 
-        headers.put("X-SpringCloud-Config-Server-Version", CloudConfigServer.VERSION);
-
-        return headers;
-    }
 }
