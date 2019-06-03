@@ -29,7 +29,6 @@ package com.buession.springcloud.config.server;
  */
 public class CloudConfigServer {
 
-    public final static String VERSION = CloudConfigServer.class.getPackage()
-                .getImplementationVersion();
+    public final static String VERSION = CloudConfigServer.class.getPackage().getImplementationVersion();
 
 }
