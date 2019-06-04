@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Consul</name>
+	<name>Buession Springcloud Metrics</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.buession.springcloud</groupId>
@@ -9,9 +9,9 @@
 		<relativePath>../buession-springcloud-parent</relativePath>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>buession-springcloud-consul</artifactId>
+	<artifactId>buession-springcloud-metrics</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Consul</description>
+	<description>Buession Framework Spring Cloud Metrics</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -41,7 +41,7 @@
 	</scm>
 
 	<properties>
-		<springframework.cloud.consul.version>2.1.1.RELEASE</springframework.cloud.consul.version>
+		<springframework.cloud.version>2.1.1.RELEASE</springframework.cloud.version>
 	</properties>
 
 	<dependencies>
@@ -52,54 +52,55 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
-			<version>${springframework.cloud.consul.version}</version>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-core</artifactId>
+		</dependency>
+
+		<!-- dropwizard metrics start -->
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-jvm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-graphite</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-json</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-healthchecks</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-annotation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-servlets</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.dropwizard.metrics</groupId>
+			<artifactId>metrics-jmx</artifactId>
+		</dependency>
+		<!-- dropwizard metrics end -->
+
+		<dependency>
+			<groupId>com.ryantenney.metrics</groupId>
+			<artifactId>metrics-spring</artifactId>
+			<version>3.1.3</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.springframework.boot</groupId>
+					<groupId>org.springframework</groupId>
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.netflix.netflix-commons</groupId>
-			<artifactId>netflix-commons-util</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.netflix.servo</groupId>
-			<artifactId>servo-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.netflix.archaius</groupId>
-			<artifactId>archaius-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.netflix.hystrix</groupId>
-			<artifactId>hystrix-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
 		<dependency>
@@ -114,7 +115,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>buession-springcloud-consul</finalName>
+		<finalName>buession-springcloud-metrics</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

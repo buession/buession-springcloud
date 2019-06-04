@@ -47,6 +47,8 @@
 		<module>../buession-springcloud-config-client</module>
 		<module>../buession-springcloud-config-server</module>
 		<module>../buession-springcloud-consul</module>
+		<module>../buession-springcloud-fegin</module>
+		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>
 
@@ -96,6 +98,18 @@
 				<groupId>com.netflix.hystrix</groupId>
 				<artifactId>hystrix-core</artifactId>
 				<version>1.5.18</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.reactivestreams</groupId>
+				<artifactId>reactive-streams</artifactId>
+				<version>1.0.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.reactivex</groupId>
+				<artifactId>rxjava</artifactId>
+				<version>1.2.0</version>
 			</dependency>
 
 			<!-- log start -->
