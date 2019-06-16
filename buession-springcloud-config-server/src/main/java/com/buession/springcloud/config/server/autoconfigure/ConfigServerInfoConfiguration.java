@@ -39,9 +39,9 @@ import org.springframework.context.annotation.Configuration;
 public class ConfigServerInfoConfiguration {
 
     @Bean(name = "configServerInfoFilter")
-    @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "buession.cloud.config-server", name = "send-info", havingValue = "true",
+    @ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true",
             matchIfMissing = true)
+    @ConditionalOnMissingBean
     public ConfigServerInfoFilter configServerInfoFilter(){
         return new ConfigServerInfoFilter();
     }

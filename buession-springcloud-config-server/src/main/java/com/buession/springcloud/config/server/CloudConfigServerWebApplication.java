@@ -42,7 +42,6 @@ import org.springframework.boot.autoconfigure.jersey.JerseyAutoConfiguration;
 import org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.boot.autoconfigure.websocket.servlet.WebSocketMessagingAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
@@ -54,8 +53,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
         GroovyTemplateAutoConfiguration.class, JmxAutoConfiguration.class, CassandraAutoConfiguration.class,
         DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,
         JdbcTemplateAutoConfiguration.class, RedisAutoConfiguration.class, RedisRepositoriesAutoConfiguration.class,
-        MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, GsonAutoConfiguration.class,
-        WebSocketMessagingAutoConfiguration.class})
+        MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, GsonAutoConfiguration.class})
 @EnableConfigServer
 @EnableDiscoveryClient
 public class CloudConfigServerWebApplication extends AbstractWebApplication {

@@ -24,6 +24,7 @@
  */
 package com.buession.springcloud.fegin.interceptor;
 
+import com.buession.springcloud.common.Version;
 import feign.Feign;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -42,8 +43,10 @@ public class ClientHeadersRequestInterceptor implements RequestInterceptor {
 
     private final static String REQUEST_CONTEXT_CLIENT_NAME = "X-Request-Context-Client";
 
-    private final static String REQUEST_CONTEXT_CLIENT = Feign.class.getSimpleName() + "/" + (Feign.class.getPackage
-            ().getImplementationVendor() == null ? "9.5.0" : Feign.class.getPackage().getImplementationVendor());
+    private final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
+
+    private final static String REQUEST_CONTEXT_CLIENT = Feign.class.getSimpleName() + "/" + Feign.class.getPackage()
+            .getImplementationVendor();
 
     private final static Logger logger = LoggerFactory.getLogger(ClientHeadersRequestInterceptor.class);
 
@@ -59,20 +62,22 @@ public class ClientHeadersRequestInterceptor implements RequestInterceptor {
             if(headerNames != null){
                 while(headerNames.hasMoreElements()){
                     String name = headerNames.nextElement();
-                    String values = request.getHeader(name);
-                    requestTemplate.header(name, values);
-                    logger.debug("Add feign request header, name: {}, values: {}", name, values);
+                    String value = request.getHeader(name);
+
+                    requestTemplate.header(name, value);
+                    logger.debug("Add feign request header, name: {}, values: {}", name, value);
                 }
             }
         }catch(IllegalStateException e){
             logger.error(e.getMessage());
         }finally{
-            setRequestContextClient(requestTemplate);
+            setRequestHeaders(requestTemplate);
         }
     }
 
-    private static void setRequestContextClient(final RequestTemplate requestTemplate){
+    private static void setRequestHeaders(final RequestTemplate requestTemplate){
         requestTemplate.header(REQUEST_CONTEXT_CLIENT_NAME, REQUEST_CONTEXT_CLIENT);
+        requestTemplate.header(BUESSION_CLOUD_NAME, Version.VERSION);
     }
 
 }

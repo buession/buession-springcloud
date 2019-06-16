@@ -24,11 +24,13 @@
  */
 package com.buession.springcloud.config.server;
 
+import org.springframework.cloud.config.server.config.ConfigServerAutoConfiguration;
+
 /**
  * @author Yong.Teng
  */
 public class CloudConfigServer {
 
-    public final static String VERSION = CloudConfigServer.class.getPackage().getImplementationVersion();
+    public final static String VERSION = ConfigServerAutoConfiguration.class.getPackage().getImplementationVersion();
 
 }
