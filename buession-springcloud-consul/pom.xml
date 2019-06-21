@@ -40,10 +40,6 @@
 		<url>https://github.com/buession/buession-springcloud</url>
 	</scm>
 
-	<properties>
-		<springframework.cloud.consul.version>2.1.1.RELEASE</springframework.cloud.consul.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.buession.springcloud</groupId>
@@ -54,7 +50,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
-			<version>${springframework.cloud.consul.version}</version>
+			<version>2.1.1.RELEASE</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -151,10 +147,6 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
