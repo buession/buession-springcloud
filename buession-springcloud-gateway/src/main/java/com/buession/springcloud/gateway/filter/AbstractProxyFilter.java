@@ -22,7 +22,50 @@
  * | Copyright @ 2013-2019 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
+package com.buession.springcloud.gateway.filter;
+
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.Ordered;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
+
+import java.util.Map;
+
 /**
  * @author Yong.Teng
  */
-package com.buession.springcloud.zuul;
+public class AbstractProxyFilter implements GlobalFilter, Ordered {
+
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain){
+        String requestContextName = getRequestContextName();
+
+        if(requestContextName != null && requestContextName != ""){
+            exchange.getRequest().getHeaders().add("X-Request-Context", requestContextName);
+        }
+
+        Map<String, String> headers = getRequestHeaders(exchange.getRequest());
+        if(headers != null){
+            headers.forEach((name, value)->{
+                exchange.getRequest().getHeaders().add(name, value);
+            });
+        }
+
+        return chain.filter(exchange);
+    }
+
+    @Override
+    public int getOrder(){
+        return Ordered.HIGHEST_PRECEDENCE;
+    }
+
+    protected String getRequestContextName(){
+        return null;
+    }
+
+    protected Map<String, String> getRequestHeaders(ServerHttpRequest request){
+        return null;
+    }
+}
