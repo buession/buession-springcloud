@@ -88,6 +88,11 @@
 				<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 				<version>${springframework.cloud.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
+				<version>${springframework.cloud.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.netflix.netflix-commons</groupId>

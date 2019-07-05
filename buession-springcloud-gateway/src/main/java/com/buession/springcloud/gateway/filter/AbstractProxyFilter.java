@@ -40,20 +40,21 @@ public class AbstractProxyFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain){
+        ServerHttpRequest.Builder serverHttpRequestBuilder = exchange.getRequest().mutate();
         String requestContextName = getRequestContextName();
 
         if(requestContextName != null && requestContextName != ""){
-            exchange.getRequest().getHeaders().add("X-Request-Context", requestContextName);
+            serverHttpRequestBuilder.header("X-Request-Context", requestContextName);
         }
 
-        Map<String, String> headers = getRequestHeaders(exchange.getRequest());
+        Map<String, String> headers = getRequestHeaders(exchange);
         if(headers != null){
             headers.forEach((name, value)->{
-                exchange.getRequest().getHeaders().add(name, value);
+                serverHttpRequestBuilder.header(name, value);
             });
         }
 
-        return chain.filter(exchange);
+        return chain.filter(exchange.mutate().request(serverHttpRequestBuilder.build()).build());
     }
 
     @Override
@@ -65,7 +66,7 @@ public class AbstractProxyFilter implements GlobalFilter, Ordered {
         return null;
     }
 
-    protected Map<String, String> getRequestHeaders(ServerHttpRequest request){
+    protected Map<String, String> getRequestHeaders(ServerWebExchange exchanget){
         return null;
     }
 }
