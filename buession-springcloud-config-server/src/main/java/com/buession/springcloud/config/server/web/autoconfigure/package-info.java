@@ -25,4 +25,4 @@
 /**
  * @author Yong.Teng
  */
-package com.buession.springcloud.config.server.autoconfigure;
+package com.buession.springcloud.config.server.web.autoconfigure;

@@ -49,6 +49,7 @@
 		<module>../buession-springcloud-consul</module>
 		<module>../buession-springcloud-fegin</module>
 		<module>../buession-springcloud-gateway</module>
+		<module>../buession-springcloud-kubernetes</module>
 		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>

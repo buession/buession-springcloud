@@ -22,28 +22,22 @@
  * | Copyright @ 2013-2019 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server.autoconfigure;
+package com.buession.springcloud.config.server.web.reactive;
 
-import com.buession.springcloud.config.server.web.ConfigServerInfoFilter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import com.buession.web.reactive.filter.ResponseHeadersFilter;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+
+import java.util.Map;
 
 /**
  * @author Yong.Teng
  */
-@Configuration
-@ConditionalOnWebApplication
-public class ConfigServerInfoConfiguration {
+public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server
+        .web.ConfigServerInfoFilter {
 
-    @Bean(name = "configServerInfoFilter")
-    @ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true",
-            matchIfMissing = true)
-    @ConditionalOnMissingBean
-    public ConfigServerInfoFilter configServerInfoFilter(){
-        return new ConfigServerInfoFilter();
+    @Override
+    public Map<String, String> getHeaders(final ServerHttpRequest request){
+        return getHeaders();
     }
 
 }

@@ -22,51 +22,21 @@
  * | Copyright @ 2013-2019 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.gateway.filter;
+package com.buession.springcloud.config.server.web.servlet;
 
-import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
-import org.springframework.core.Ordered;
-import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Mono;
+import com.buession.web.servlet.filter.ResponseHeadersFilter;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
  * @author Yong.Teng
  */
-public class AbstractProxyFilter implements GlobalFilter, Ordered {
+public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server
+        .web.ConfigServerInfoFilter {
 
     @Override
-    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain){
-        ServerHttpRequest.Builder serverHttpRequestBuilder = exchange.getRequest().mutate();
-        String requestContextName = getRequestContextName();
-
-        if(requestContextName != null && requestContextName != ""){
-            serverHttpRequestBuilder.header("X-Request-Context", requestContextName);
-        }
-
-        Map<String, String> headers = getRequestHeaders(exchange);
-        if(headers != null){
-            headers.forEach((name, value)->{
-                serverHttpRequestBuilder.header(name, value);
-            });
-        }
-
-        return chain.filter(exchange.mutate().request(serverHttpRequestBuilder.build()).build());
-    }
-
-    @Override
-    public int getOrder(){
-        return Ordered.HIGHEST_PRECEDENCE;
-    }
-
-    protected String getRequestContextName(){
-        return null;
-    }
-
-    protected Map<String, String> getRequestHeaders(ServerWebExchange exchange){
-        return null;
+    public Map<String, String> getHeaders(final HttpServletRequest request){
+        return getHeaders();
     }
 }
