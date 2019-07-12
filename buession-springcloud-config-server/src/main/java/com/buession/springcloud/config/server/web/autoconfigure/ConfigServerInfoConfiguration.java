@@ -40,7 +40,7 @@ public class ConfigServerInfoConfiguration {
     @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
     public static class ServletConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
 
-        @Bean(name = "configServerInfoFilter")
+        @Bean
         @ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true",
                 matchIfMissing = true)
         @ConditionalOnMissingBean
@@ -54,7 +54,7 @@ public class ConfigServerInfoConfiguration {
     @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
     public static class ReactiveConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
 
-        @Bean(name = "configServerInfoFilter")
+        @Bean
         @ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true",
                 matchIfMissing = true)
         @ConditionalOnMissingBean

@@ -39,9 +39,9 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnWebApplication
 public class FeignInterceptorConfiguration {
 
-    @Bean(name = "clientHeadersRequestInterceptor")
-    @ConditionalOnProperty(prefix = "spring.cloud.fegin", name = "enable-request-headers", havingValue = "true",
-            matchIfMissing = true)
+    @Bean
+    @ConditionalOnProperty(prefix = "spring.cloud.feign.apply-client-request-headers", name = "enable", havingValue =
+            "true", matchIfMissing = true)
     @ConditionalOnMissingBean
     public RequestInterceptor clientHeadersRequestInterceptor(){
         return new ClientHeadersRequestInterceptor();
