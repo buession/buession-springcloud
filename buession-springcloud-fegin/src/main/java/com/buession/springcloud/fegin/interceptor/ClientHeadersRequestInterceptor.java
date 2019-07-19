@@ -34,7 +34,9 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.List;
 
 /**
  * @author Yong.Teng
@@ -44,6 +46,8 @@ public class ClientHeadersRequestInterceptor implements RequestInterceptor {
     private final static String REQUEST_CONTEXT_CLIENT_NAME = "X-Request-Context-Client";
 
     private final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
+
+    private final static List<String> IGNORE_REQUEST_HEADERS = Arrays.asList("Accept-Encoding");
 
     private final static String REQUEST_CONTEXT_CLIENT = Feign.class.getSimpleName() + "/" + Feign.class.getPackage()
             .getImplementationVendor();
@@ -62,6 +66,12 @@ public class ClientHeadersRequestInterceptor implements RequestInterceptor {
             if(headerNames != null){
                 while(headerNames.hasMoreElements()){
                     String name = headerNames.nextElement();
+
+                    if(IGNORE_REQUEST_HEADERS.contains(name)){
+                        logger.debug("Ignore feign request header, name: {}", name);
+                        continue;
+                    }
+
                     String value = request.getHeader(name);
 
                     requestTemplate.header(name, value);
