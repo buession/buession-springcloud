@@ -3,8 +3,8 @@
 基于 Spring Cloud 2 的扩展。
 
 [![Build Status](https://travis-ci.org/buession/buession-springcloud.svg?branch=master)](https://travis-ci.org/buession/buession-springcloud)
-[![Coverage Status](https://img.shields.io/codecov/c/github/buession/buession-springcloud/master.svg)](https://codecov.io/github/buession/buession-springcloud?branch=master&view=all#sort=coverage&dir=asc)  
-[![Maven Central](https://img.shields.io/maven-central/v/com.buession.springcloud/buession-springcloud-common.svg)](https://search.maven.org/search?q=g:%22com.buession.springcloud)
+[![Coverage Status](https://img.shields.io/codecov/c/github/buession/buession-springcloud/master.svg)](https://codecov.io/github/buession/buession-springcloud?branch=master&view=all#sort=coverage&dir=asc)
+[![Maven Central](https://img.shields.io/maven-central/v/com.buession.springcloud/buession-springcloud-common.svg)](https://search.maven.org/search?q=g:com.buession.springcloud)
 [![GitHub release](https://img.shields.io/github/release/buession/buession-springcloud.svg)](https://github.com/buession/buession-springcloud/releases)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -19,7 +19,7 @@
 
 ## Maven
 
-- https://oss.sonatype.org/#nexus-search;quick~com.buession.springcloud
+- https://search.maven.org/search?q=g:com.buession.springcloud
 
 ## Documentation
 ---
