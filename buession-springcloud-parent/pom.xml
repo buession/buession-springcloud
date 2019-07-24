@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession Springcloud Framework Parent</description>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -49,17 +49,11 @@
 		<module>../buession-springcloud-consul</module>
 		<module>../buession-springcloud-fegin</module>
 		<module>../buession-springcloud-gateway</module>
+		<module>../buession-springcloud-metrics</module>
 		<module>../buession-springcloud-kubernetes</module>
 		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>
-
-	<properties>
-		<project.build.encoding>UTF-8</project.build.encoding>
-		<project.java.version>1.8</project.java.version>
-		<buession.version>1.0.0</buession.version>
-		<buession.springboot.version>1.0.0</buession.springboot.version>
-	</properties>
 
 	<dependencyManagement>
 		<dependencies>
