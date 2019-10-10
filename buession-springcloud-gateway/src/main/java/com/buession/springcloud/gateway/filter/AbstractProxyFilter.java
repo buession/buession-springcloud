@@ -43,7 +43,7 @@ public class AbstractProxyFilter implements GlobalFilter, Ordered {
         ServerHttpRequest.Builder serverHttpRequestBuilder = exchange.getRequest().mutate();
         String requestContextName = getRequestContextName();
 
-        if(requestContextName != null && requestContextName != ""){
+        if(requestContextName != null && "".equals(requestContextName) == false){
             serverHttpRequestBuilder.header("X-Request-Context", requestContextName);
         }
 
