@@ -1,4 +1,4 @@
-# Buession Security
+# Buession Spring Cloud
 
 基于 Spring Cloud 2 的扩展。
 
@@ -20,7 +20,6 @@
 ## Maven
 
 - https://search.maven.org/search?q=g:com.buession.springcloud
-
 - https://mvnrepository.com/search?q=com.buession.springcloud
 
 ## Documentation
