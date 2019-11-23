@@ -41,7 +41,7 @@
 	</scm>
 
 	<properties>
-		<springframework.cloud.kubernetes.version>1.0.2.RELEASE</springframework.cloud.kubernetes.version>
+		<springframework.cloud.kubernetes.version>1.0.4.RELEASE</springframework.cloud.kubernetes.version>
 	</properties>
 
 	<dependencies>
