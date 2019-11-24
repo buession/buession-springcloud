@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>1.0.2</version>
+		<version>1.1.0</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession Springcloud Framework Parent</description>
-	<version>1.0.2</version>
+	<version>1.1.0</version>
 	<packaging>pom</packaging>
 
 	<organization>
