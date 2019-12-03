@@ -49,6 +49,7 @@
 		<module>../buession-springcloud-consul</module>
 		<module>../buession-springcloud-fegin</module>
 		<module>../buession-springcloud-gateway</module>
+		<module>../buession-springcloud-ribbon</module>
 		<module>../buession-springcloud-metrics</module>
 		<module>../buession-springcloud-kubernetes</module>
 		<module>../buession-springcloud-stream</module>
@@ -80,6 +81,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
+				<version>${springframework.cloud.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
 				<version>${springframework.cloud.version}</version>
 				<exclusions>
@@ -89,28 +95,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
-				<version>${springframework.cloud.version}</version>
-			</dependency>
 
-			<dependency>
-				<groupId>com.netflix.netflix-commons</groupId>
-				<artifactId>netflix-commons-util</artifactId>
-				<version>0.3.0</version>
-				<exclusions>
-					<exclusion>
-						<groupId>javax.inject</groupId>
-						<artifactId>javax.inject</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.servo</groupId>
-				<artifactId>servo-core</artifactId>
-				<version>0.12.28</version>
-			</dependency>
 			<dependency>
 				<groupId>com.netflix.archaius</groupId>
 				<artifactId>archaius-core</artifactId>
@@ -123,6 +108,11 @@
 				</exclusions>
 			</dependency>
 			<dependency>
+				<groupId>com.netflix.servo</groupId>
+				<artifactId>servo-core</artifactId>
+				<version>0.12.28</version>
+			</dependency>
+			<dependency>
 				<groupId>com.netflix.hystrix</groupId>
 				<artifactId>hystrix-core</artifactId>
 				<version>1.5.18</version>
@@ -131,6 +121,17 @@
 				<groupId>com.netflix.hystrix</groupId>
 				<artifactId>hystrix-javanica</artifactId>
 				<version>1.5.18</version>
+			</dependency>
+			<dependency>
+				<groupId>com.netflix.netflix-commons</groupId>
+				<artifactId>netflix-commons-util</artifactId>
+				<version>0.3.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.inject</groupId>
+						<artifactId>javax.inject</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
@@ -148,7 +149,7 @@
 			<dependency>
 				<groupId>io.projectreactor</groupId>
 				<artifactId>reactor-core</artifactId>
-				<version>3.3.0.RELEASE</version>
+				<version>3.3.1.RELEASE</version>
 			</dependency>
 
 			<dependency>
