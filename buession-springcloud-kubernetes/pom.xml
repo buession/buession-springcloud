@@ -78,13 +78,6 @@
 			<artifactId>jakarta.validation-api</artifactId>
 		</dependency>
 
-		<!--
-		<dependency>
-			<groupId>jakarta.ws.rs</groupId>
-			<artifactId>jakarta.ws.rs-api</artifactId>
-		</dependency>
-		-->
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-yaml</artifactId>

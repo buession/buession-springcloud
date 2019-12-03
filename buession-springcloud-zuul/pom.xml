@@ -81,13 +81,6 @@
 			<artifactId>jakarta.servlet-api</artifactId>
 		</dependency>
 
-		<!--
-		<dependency>
-			<groupId>jakarta.ws.rs</groupId>
-			<artifactId>jakarta.ws.rs-api</artifactId>
-		</dependency>
-		-->
-
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
