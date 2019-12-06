@@ -46,9 +46,7 @@ public abstract class AbstractProxyFilter extends AbstractZuulFilter {
 
         Map<String, String> headers = getRequestHeaders(request);
         if(headers != null){
-            headers.forEach((name, value)->{
-                context.addZuulRequestHeader(name, value);
-            });
+            headers.forEach((name, value)->context.addZuulRequestHeader(name, value));
         }
 
         return context;

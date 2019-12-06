@@ -49,9 +49,7 @@ public class AbstractProxyFilter implements GlobalFilter, Ordered {
 
         Map<String, String> headers = getRequestHeaders(exchange);
         if(headers != null){
-            headers.forEach((name, value)->{
-                serverHttpRequestBuilder.header(name, value);
-            });
+            headers.forEach((name, value)->serverHttpRequestBuilder.header(name, value));
         }
 
         return chain.filter(exchange.mutate().request(serverHttpRequestBuilder.build()).build());
