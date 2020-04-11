@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server;
@@ -50,25 +50,26 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  */
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {HibernateJpaAutoConfiguration.class, JerseyAutoConfiguration.class,
-        GroovyTemplateAutoConfiguration.class, JmxAutoConfiguration.class, CassandraAutoConfiguration.class,
-        DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,
-        JdbcTemplateAutoConfiguration.class, RedisAutoConfiguration.class, RedisRepositoriesAutoConfiguration.class,
-        MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, GsonAutoConfiguration.class})
+		GroovyTemplateAutoConfiguration.class, JmxAutoConfiguration.class, CassandraAutoConfiguration.class,
+		DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,
+		JdbcTemplateAutoConfiguration.class, RedisAutoConfiguration.class, RedisRepositoriesAutoConfiguration.class,
+		MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, GsonAutoConfiguration.class})
 @EnableConfigServer
 @EnableDiscoveryClient
 public class CloudConfigServerWebApplication extends AbstractWebApplication {
 
-    protected CloudConfigServerWebApplication(){
-        super();
-    }
+	protected CloudConfigServerWebApplication(){
+		super();
+	}
 
-    public final static void main(final String[] args){
-        Application application = new CloudConfigServerWebApplication();
-        application.run(args);
-    }
+	public final static void main(final String[] args){
+		Application application = new CloudConfigServerWebApplication();
+		application.run(args);
+	}
 
-    @Override
-    protected Banner getBanner(){
-        return new CloudConfigServerBanner();
-    }
+	@Override
+	protected Banner getBanner(){
+		return new CloudConfigServerBanner();
+	}
+
 }

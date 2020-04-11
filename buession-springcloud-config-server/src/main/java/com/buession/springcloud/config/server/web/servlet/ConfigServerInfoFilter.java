@@ -19,24 +19,31 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server.web.servlet;
 
+import com.buession.springcloud.config.server.CloudConfigServer;
 import com.buession.web.servlet.filter.ResponseHeadersFilter;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author Yong.Teng
  */
 public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server
-        .web.ConfigServerInfoFilter {
+		.web.ConfigServerInfoFilter {
 
-    @Override
-    public Map<String, String> getHeaders(final HttpServletRequest request){
-        return getHeaders();
-    }
+	@Override
+	public Map<String, String> getHeaders(final HttpServletRequest request){
+		Map<String, String> headers = new HashMap<>(1);
+
+		headers.put("X-SpringCloud-Config-Server-Version", CloudConfigServer.VERSION);
+
+		return headers;
+	}
+
 }

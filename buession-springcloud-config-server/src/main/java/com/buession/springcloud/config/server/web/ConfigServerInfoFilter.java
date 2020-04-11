@@ -19,27 +19,14 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server.web;
-
-import com.buession.springcloud.config.server.CloudConfigServer;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Yong.Teng
  */
 public interface ConfigServerInfoFilter {
-
-    default Map<String, String> getHeaders(){
-        Map<String, String> headers = new HashMap<>(1);
-
-        headers.put("X-SpringCloud-Config-Server-Version", CloudConfigServer.VERSION);
-
-        return headers;
-    }
 
 }

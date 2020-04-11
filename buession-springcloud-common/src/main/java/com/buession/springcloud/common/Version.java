@@ -19,16 +19,18 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.common;
+
+import com.buession.core.utils.VersionUtils;
 
 /**
  * @author Yong.Teng
  */
 public class Version {
 
-    public final static String VERSION = Version.class.getPackage().getImplementationVersion();
+    public final static String VERSION = VersionUtils.determineClassVersion(Version.class);
 
 }

@@ -19,11 +19,12 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server;
 
+import com.buession.core.utils.VersionUtils;
 import org.springframework.cloud.config.server.config.ConfigServerAutoConfiguration;
 
 /**
@@ -31,6 +32,6 @@ import org.springframework.cloud.config.server.config.ConfigServerAutoConfigurat
  */
 public class CloudConfigServer {
 
-    public final static String VERSION = ConfigServerAutoConfiguration.class.getPackage().getImplementationVersion();
+	public final static String VERSION = VersionUtils.determineClassVersion(ConfigServerAutoConfiguration.class);
 
 }
