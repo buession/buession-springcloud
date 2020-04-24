@@ -2,8 +2,8 @@
 
 Maven 中央仓库搜索
 
-- [https://search.maven.org/search?q=g:com.buession.springcloud](https://search.maven.org/search?q=g:com.buession.springcloud)
-- [https://mvnrepository.com/search?q=com.buession.springcloud](https://mvnrepository.com/search?q=com.buession.springcloud)
+- [https://search.maven.org/search?q=g:com.buession.springcloud](https://search.maven.org/search?q=g:com.buession.springcloud){:target="_blank"}
+- [https://mvnrepository.com/search?q=com.buession.springcloud](https://mvnrepository.com/search?q=com.buession.springcloud){:target="_blank"}
 
 **手动编译**
 
