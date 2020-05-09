@@ -64,7 +64,7 @@ public class CloudConfigServerWebApplication extends AbstractWebApplication {
 
 	public final static void main(final String[] args){
 		Application application = new CloudConfigServerWebApplication();
-		application.run(args);
+		application.startup(args);
 	}
 
 	@Override
