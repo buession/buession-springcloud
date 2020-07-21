@@ -43,51 +43,49 @@ import java.util.List;
  */
 public class ClientHeadersRequestInterceptor implements RequestInterceptor {
 
-    private final static String REQUEST_CONTEXT_CLIENT_NAME = "X-Request-Context-Client";
+	private final static String REQUEST_CONTEXT_CLIENT_NAME = "X-Request-Context-Client";
 
-    private final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
+	private final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
 
-    private final static List<String> IGNORE_REQUEST_HEADERS = Arrays.asList("Accept-Encoding");
+	private final static List<String> IGNORE_REQUEST_HEADERS = Arrays.asList("Accept-Encoding");
 
-    private final static String REQUEST_CONTEXT_CLIENT = Feign.class.getSimpleName() + "/" + Feign.class.getPackage()
-            .getImplementationVendor();
+	private final static String REQUEST_CONTEXT_CLIENT =
+			Feign.class.getSimpleName() + "/" + Feign.class.getPackage().getImplementationVendor();
 
-    private final static Logger logger = LoggerFactory.getLogger(ClientHeadersRequestInterceptor.class);
+	private final static Logger logger = LoggerFactory.getLogger(ClientHeadersRequestInterceptor.class);
 
-    @Override
-    public void apply(final RequestTemplate requestTemplate){
-        try{
-            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
-                    .currentRequestAttributes();
+	@Override
+	public void apply(final RequestTemplate requestTemplate){
+		try{
+			ServletRequestAttributes attributes =
+					(ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 
-            HttpServletRequest request = attributes.getRequest();
-            Enumeration<String> headerNames = request.getHeaderNames();
+			HttpServletRequest request = attributes.getRequest();
+			Enumeration<String> headerNames = request.getHeaderNames();
 
-            if(headerNames != null){
-                while(headerNames.hasMoreElements()){
-                    String name = headerNames.nextElement();
+			while(headerNames != null && headerNames.hasMoreElements()){
+				String name = headerNames.nextElement();
 
-                    if(IGNORE_REQUEST_HEADERS.contains(name)){
-                        logger.debug("Ignore feign request header, name: {}", name);
-                        continue;
-                    }
+				if(IGNORE_REQUEST_HEADERS.contains(name)){
+					logger.debug("Ignore feign request header, name: {}", name);
+					continue;
+				}
 
-                    String value = request.getHeader(name);
+				String value = request.getHeader(name);
 
-                    requestTemplate.header(name, value);
-                    logger.debug("Add feign request header, name: {}, values: {}", name, value);
-                }
-            }
-        }catch(IllegalStateException e){
-            logger.error(e.getMessage());
-        }finally{
-            setRequestHeaders(requestTemplate);
-        }
-    }
+				requestTemplate.header(name, value);
+				logger.debug("Add feign request header, name: {}, values: {}", name, value);
+			}
+		}catch(IllegalStateException e){
+			logger.error(e.getMessage());
+		}finally{
+			setRequestHeaders(requestTemplate);
+		}
+	}
 
-    private static void setRequestHeaders(final RequestTemplate requestTemplate){
-        requestTemplate.header(REQUEST_CONTEXT_CLIENT_NAME, REQUEST_CONTEXT_CLIENT);
-        requestTemplate.header(BUESSION_CLOUD_NAME, Version.VERSION);
-    }
+	private static void setRequestHeaders(final RequestTemplate requestTemplate){
+		requestTemplate.header(REQUEST_CONTEXT_CLIENT_NAME, REQUEST_CONTEXT_CLIENT);
+		requestTemplate.header(BUESSION_CLOUD_NAME, Version.VERSION);
+	}
 
 }

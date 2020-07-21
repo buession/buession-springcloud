@@ -19,11 +19,13 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.gateway.filter;
 
+import com.buession.core.validator.Validate;
+import com.buession.lang.Constants;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -38,33 +40,34 @@ import java.util.Map;
  */
 public class AbstractProxyFilter implements GlobalFilter, Ordered {
 
-    @Override
-    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain){
-        ServerHttpRequest.Builder serverHttpRequestBuilder = exchange.getRequest().mutate();
-        String requestContextName = getRequestContextName();
+	@Override
+	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain){
+		ServerHttpRequest.Builder serverHttpRequestBuilder = exchange.getRequest().mutate();
+		String requestContextName = getRequestContextName();
 
-        if(requestContextName != null && "".equals(requestContextName) == false){
-            serverHttpRequestBuilder.header("X-Request-Context", requestContextName);
-        }
+		if(Validate.hasText(requestContextName)){
+			serverHttpRequestBuilder.header("X-Request-Context", requestContextName);
+		}
 
-        Map<String, String> headers = getRequestHeaders(exchange);
-        if(headers != null){
-            headers.forEach((name, value)->serverHttpRequestBuilder.header(name, value));
-        }
+		Map<String, String> headers = getRequestHeaders(exchange);
+		if(headers != null){
+			headers.forEach((name, value)->serverHttpRequestBuilder.header(name, value));
+		}
 
-        return chain.filter(exchange.mutate().request(serverHttpRequestBuilder.build()).build());
-    }
+		return chain.filter(exchange.mutate().request(serverHttpRequestBuilder.build()).build());
+	}
 
-    @Override
-    public int getOrder(){
-        return Ordered.HIGHEST_PRECEDENCE;
-    }
+	@Override
+	public int getOrder(){
+		return Ordered.HIGHEST_PRECEDENCE;
+	}
 
-    protected String getRequestContextName(){
-        return null;
-    }
+	protected String getRequestContextName(){
+		return null;
+	}
 
-    protected Map<String, String> getRequestHeaders(ServerWebExchange exchange){
-        return null;
-    }
+	protected Map<String, String> getRequestHeaders(ServerWebExchange exchange){
+		return null;
+	}
+
 }

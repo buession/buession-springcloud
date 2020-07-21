@@ -28,7 +28,7 @@ import com.buession.springcloud.config.server.CloudConfigServer;
 import com.buession.web.servlet.filter.ResponseHeadersFilter;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -39,11 +39,7 @@ public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com
 
 	@Override
 	public Map<String, String> getHeaders(final HttpServletRequest request){
-		Map<String, String> headers = new HashMap<>(1);
-
-		headers.put("X-SpringCloud-Config-Server-Version", CloudConfigServer.VERSION);
-
-		return headers;
+		return Collections.singletonMap("X-SpringCloud-Config-Server-Version", CloudConfigServer.VERSION);
 	}
 
 }

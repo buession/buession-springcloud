@@ -19,11 +19,13 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2020 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.zuul.filter;
 
+import com.buession.core.validator.Validate;
+import com.buession.lang.Constants;
 import com.netflix.zuul.context.RequestContext;
 import org.springframework.core.Ordered;
 
@@ -36,33 +38,33 @@ import java.util.Map;
  */
 public abstract class AbstractProxyFilter extends AbstractZuulFilter {
 
-    @Override
-    public Object run(RequestContext context, HttpServletRequest request, HttpServletResponse response){
-        String requestContextName = getRequestContextName();
+	@Override
+	public Object run(RequestContext context, HttpServletRequest request, HttpServletResponse response){
+		String requestContextName = getRequestContextName();
 
-        if(requestContextName != null && requestContextName != ""){
-            context.addZuulRequestHeader("X-Request-Context", requestContextName);
-        }
+		if(Validate.hasText(requestContextName)){
+			context.addZuulRequestHeader("X-Request-Context", requestContextName);
+		}
 
-        Map<String, String> headers = getRequestHeaders(request);
-        if(headers != null){
-            headers.forEach((name, value)->context.addZuulRequestHeader(name, value));
-        }
+		Map<String, String> headers = getRequestHeaders(request);
+		if(headers != null){
+			headers.forEach((name, value)->context.addZuulRequestHeader(name, value));
+		}
 
-        return context;
-    }
+		return context;
+	}
 
-    @Override
-    public int filterOrder(){
-        return Ordered.HIGHEST_PRECEDENCE;
-    }
+	@Override
+	public int filterOrder(){
+		return Ordered.HIGHEST_PRECEDENCE;
+	}
 
-    protected String getRequestContextName(){
-        return null;
-    }
+	protected String getRequestContextName(){
+		return null;
+	}
 
-    protected Map<String, String> getRequestHeaders(HttpServletRequest request){
-        return null;
-    }
+	protected Map<String, String> getRequestHeaders(HttpServletRequest request){
+		return null;
+	}
 
 }
