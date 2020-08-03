@@ -25,7 +25,6 @@
 package com.buession.springcloud.zuul.filter;
 
 import com.buession.core.validator.Validate;
-import com.buession.lang.Constants;
 import com.netflix.zuul.context.RequestContext;
 import org.springframework.core.Ordered;
 
@@ -36,14 +35,14 @@ import java.util.Map;
 /**
  * @author Yong.Teng
  */
-public abstract class AbstractProxyFilter extends AbstractZuulFilter {
+public abstract class AbstractProxyFilter extends AbstractZuulFilter implements ProxyFilter {
 
 	@Override
 	public Object run(RequestContext context, HttpServletRequest request, HttpServletResponse response){
 		String requestContextName = getRequestContextName();
 
 		if(Validate.hasText(requestContextName)){
-			context.addZuulRequestHeader("X-Request-Context", requestContextName);
+			context.addZuulRequestHeader(REQUEST_CONTEXT, requestContextName);
 		}
 
 		Map<String, String> headers = getRequestHeaders(request);

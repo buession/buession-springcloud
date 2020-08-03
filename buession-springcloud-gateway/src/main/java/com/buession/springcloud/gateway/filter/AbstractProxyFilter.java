@@ -25,7 +25,6 @@
 package com.buession.springcloud.gateway.filter;
 
 import com.buession.core.validator.Validate;
-import com.buession.lang.Constants;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -38,7 +37,7 @@ import java.util.Map;
 /**
  * @author Yong.Teng
  */
-public class AbstractProxyFilter implements GlobalFilter, Ordered {
+public abstract class AbstractProxyFilter implements ProxyFilter, GlobalFilter, Ordered {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain){
@@ -46,7 +45,7 @@ public class AbstractProxyFilter implements GlobalFilter, Ordered {
 		String requestContextName = getRequestContextName();
 
 		if(Validate.hasText(requestContextName)){
-			serverHttpRequestBuilder.header("X-Request-Context", requestContextName);
+			serverHttpRequestBuilder.header(REQUEST_CONTEXT, requestContextName);
 		}
 
 		Map<String, String> headers = getRequestHeaders(exchange);

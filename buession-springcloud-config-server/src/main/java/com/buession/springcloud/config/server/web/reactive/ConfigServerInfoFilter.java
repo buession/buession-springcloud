@@ -34,12 +34,11 @@ import java.util.Map;
 /**
  * @author Yong.Teng
  */
-public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server
-		.web.ConfigServerInfoFilter {
+public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server.web.ConfigServerInfoFilter {
 
 	@Override
 	public Map<String, String> getHeaders(final ServerHttpRequest request){
-		return Collections.singletonMap("X-SpringCloud-Config-Server-Version", CloudConfigServer.VERSION);
+		return Collections.singletonMap(CONFIG_SERVER_VERSION_NAME, CloudConfigServer.VERSION);
 	}
 
 }

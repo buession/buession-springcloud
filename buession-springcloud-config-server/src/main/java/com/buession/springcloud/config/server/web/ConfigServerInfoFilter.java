@@ -29,4 +29,6 @@ package com.buession.springcloud.config.server.web;
  */
 public interface ConfigServerInfoFilter {
 
+	String CONFIG_SERVER_VERSION_NAME = "X-SpringCloud-Config-Server-Version";
+
 }
