@@ -51,6 +51,8 @@
 		<module>../buession-springcloud-gateway</module>
 		<module>../buession-springcloud-ribbon</module>
 		<module>../buession-springcloud-metrics</module>
+		<module>../buession-springcloud-nacos-config-client</module>
+		<module>../buession-springcloud-nacos-discovery</module>
 		<module>../buession-springcloud-kubernetes</module>
 		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zuul</module>
