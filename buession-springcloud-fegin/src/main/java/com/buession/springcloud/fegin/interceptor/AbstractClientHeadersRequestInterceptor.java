@@ -22,23 +22,10 @@
  * | Copyright @ 2013-2021 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server.web.servlet;
-
-import com.buession.springcloud.config.server.CloudConfigServer;
-import com.buession.web.servlet.filter.ResponseHeadersFilter;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
-import java.util.Map;
-
-/**
+package com.buession.springcloud.fegin.interceptor;/**
+ * 
+ *
  * @author Yong.Teng
- */
-public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server.web.ConfigServerInfoFilter {
-
-	@Override
-	public Map<String, String> getHeaders(final HttpServletRequest request){
-		return Collections.singletonMap(CONFIG_SERVER_VERSION_NAME, CloudConfigServer.VERSION);
-	}
-
+ * @since 1.2.1
+ */public class AbstractClientHeadersRequestInterceptor {
 }

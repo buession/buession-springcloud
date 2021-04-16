@@ -24,7 +24,7 @@
  * | Copyright @ 2013-2020 Buession.com Inc.														|
  * +------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.fegin.interceptor;
+package com.buession.springcloud.fegin.interceptor.servlet;
 
 import com.buession.core.utils.VersionUtils;
 import com.buession.springcloud.common.Version;
