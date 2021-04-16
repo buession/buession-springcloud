@@ -21,15 +21,12 @@
  * +------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										|
  * | Author: Yong.Teng <webmaster@buession.com> 													|
- * | Copyright @ 2013-2020 Buession.com Inc.														|
+ * | Copyright @ 2013-2021 Buession.com Inc.														|
  * +------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.fegin.interceptor.servlet;
 
-import com.buession.core.utils.VersionUtils;
-import com.buession.springcloud.common.Version;
-import feign.Feign;
-import feign.RequestInterceptor;
+import com.buession.springcloud.fegin.interceptor.AbstractClientHeadersRequestInterceptor;
 import feign.RequestTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,25 +34,16 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.List;
 
 /**
+ * Servlet 请求头拦截器抽象类
+ *
  * @author Yong.Teng
  */
-public class ClientHeadersRequestInterceptor implements RequestInterceptor {
+public class ServletClientHeadersRequestInterceptor extends AbstractClientHeadersRequestInterceptor {
 
-	private final static String REQUEST_CONTEXT_CLIENT_NAME = "X-Request-Context-Client";
-
-	private final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
-
-	private final static List<String> IGNORE_REQUEST_HEADERS = Arrays.asList("Accept-Encoding");
-
-	private final static String REQUEST_CONTEXT_CLIENT =
-			Feign.class.getSimpleName() + "/" + VersionUtils.determineClassVersion(Feign.class);
-
-	private final static Logger logger = LoggerFactory.getLogger(ClientHeadersRequestInterceptor.class);
+	private final static Logger logger = LoggerFactory.getLogger(ServletClientHeadersRequestInterceptor.class);
 
 	@Override
 	public void apply(final RequestTemplate requestTemplate){
@@ -84,11 +72,6 @@ public class ClientHeadersRequestInterceptor implements RequestInterceptor {
 		}finally{
 			setRequestHeaders(requestTemplate);
 		}
-	}
-
-	private static void setRequestHeaders(final RequestTemplate requestTemplate){
-		requestTemplate.header(REQUEST_CONTEXT_CLIENT_NAME, REQUEST_CONTEXT_CLIENT);
-		requestTemplate.header(BUESSION_CLOUD_NAME, Version.VERSION);
 	}
 
 }

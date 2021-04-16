@@ -22,10 +22,37 @@
  * | Copyright @ 2013-2021 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.fegin.interceptor;/**
- * 
+package com.buession.springcloud.fegin.interceptor;
+
+import com.buession.core.utils.VersionUtils;
+import com.buession.springcloud.common.Version;
+import feign.Feign;
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * 请求头拦截器抽象类
  *
  * @author Yong.Teng
  * @since 1.2.1
- */public class AbstractClientHeadersRequestInterceptor {
+ */
+public abstract class AbstractClientHeadersRequestInterceptor implements RequestInterceptor {
+
+	protected final static String REQUEST_CONTEXT_CLIENT_NAME = "X-Request-Context-Client";
+
+	protected final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
+
+	protected final static List<String> IGNORE_REQUEST_HEADERS = Arrays.asList("Accept-Encoding");
+
+	protected final static String REQUEST_CONTEXT_CLIENT =
+			Feign.class.getSimpleName() + "/" + VersionUtils.determineClassVersion(Feign.class);
+
+	protected static void setRequestHeaders(final RequestTemplate requestTemplate){
+		requestTemplate.header(REQUEST_CONTEXT_CLIENT_NAME, REQUEST_CONTEXT_CLIENT);
+		requestTemplate.header(BUESSION_CLOUD_NAME, Version.VERSION);
+	}
+
 }

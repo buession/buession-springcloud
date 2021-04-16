@@ -22,10 +22,46 @@
  * | Copyright @ 2013-2021 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.fegin.interceptor.reactive;/**
- * 
+package com.buession.springcloud.fegin.interceptor.reactive;
+
+import com.buession.springcloud.fegin.interceptor.AbstractClientHeadersRequestInterceptor;
+import com.buession.web.reactive.context.request.RequestContextHolder;
+import feign.RequestTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import reactor.core.publisher.Mono;
+
+/**
+ * Reactive 请求头拦截器抽象类
  *
  * @author Yong.Teng
  * @since 1.2.1
- */public class ReactiveClientHeadersRequestInterceptor {
+ */
+public class ReactiveClientHeadersRequestInterceptor extends AbstractClientHeadersRequestInterceptor {
+
+	private final static Logger logger = LoggerFactory.getLogger(ReactiveClientHeadersRequestInterceptor.class);
+
+	@Override
+	public void apply(RequestTemplate requestTemplate){
+		try{
+			Mono<ServerHttpRequest> mono = RequestContextHolder.getRequest();
+
+			mono.subscribe(request->{
+				request.getHeaders().forEach((name, value)->{
+					if(IGNORE_REQUEST_HEADERS.contains(name)){
+						logger.debug("Ignore feign request header, name: {}", name);
+					}else{
+						requestTemplate.header(name, value);
+						logger.debug("Add feign request header, name: {}, values: {}", name, value);
+					}
+				});
+			});
+		}catch(IllegalStateException e){
+			logger.error(e.getMessage());
+		}finally{
+			setRequestHeaders(requestTemplate);
+		}
+	}
+
 }
