@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>1.2.0</version>
+		<version>1.2.1</version>
 	</parent>
 	<artifactId>buession-springcloud-metrics</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
@@ -45,11 +45,6 @@
 			<groupId>com.buession.springcloud</groupId>
 			<artifactId>buession-springcloud-common</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-core</artifactId>
 		</dependency>
 
 		<!-- dropwizard metrics start -->

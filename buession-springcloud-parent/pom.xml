@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>1.2.0</version>
+		<version>1.2.1</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession Springcloud Framework Parent</description>
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -49,11 +49,12 @@
 		<module>../buession-springcloud-consul</module>
 		<module>../buession-springcloud-fegin</module>
 		<module>../buession-springcloud-gateway</module>
-		<module>../buession-springcloud-ribbon</module>
+		<module>../buession-springcloud-hystrix</module>
+		<module>../buession-springcloud-kubernetes</module>
 		<module>../buession-springcloud-metrics</module>
 		<module>../buession-springcloud-nacos-config-client</module>
 		<module>../buession-springcloud-nacos-discovery</module>
-		<module>../buession-springcloud-kubernetes</module>
+		<module>../buession-springcloud-ribbon</module>
 		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>
@@ -85,52 +86,14 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-				<version>${springframework.cloud.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.apache.commons</groupId>
-						<artifactId>commons-lang3</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
 				<version>${springframework.cloud.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>com.netflix.archaius</groupId>
-				<artifactId>archaius-core</artifactId>
-				<version>0.7.7</version>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
 				<groupId>com.netflix.servo</groupId>
 				<artifactId>servo-core</artifactId>
-				<version>0.13.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.hystrix</groupId>
-				<artifactId>hystrix-core</artifactId>
-				<version>1.5.18</version>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.netflix-commons</groupId>
-				<artifactId>netflix-commons-util</artifactId>
-				<version>0.3.0</version>
-				<exclusions>
-					<exclusion>
-						<groupId>javax.inject</groupId>
-						<artifactId>javax.inject</artifactId>
-					</exclusion>
-				</exclusions>
+				<version>0.13.2</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
