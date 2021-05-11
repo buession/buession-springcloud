@@ -66,6 +66,11 @@
 
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-webflux</artifactId>
 			<scope>compile</scope>
 			<optional>true</optional>
@@ -106,6 +111,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
 		</dependency>
@@ -126,6 +136,15 @@
 		<dependency>
 			<groupId>io.reactivex</groupId>
 			<artifactId>rxjava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
 		</dependency>
 
 		<dependency>

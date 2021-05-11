@@ -1,0 +1,5 @@
+com.buession.springcloud.fegin
+com.buession.springcloud.fegin.autoconfigure
+com.buession.springcloud.fegin.interceptor
+com.buession.springcloud.fegin.interceptor.reactive
+com.buession.springcloud.fegin.interceptor.servlet
