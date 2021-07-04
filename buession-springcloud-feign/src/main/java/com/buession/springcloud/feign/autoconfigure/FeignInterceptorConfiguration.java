@@ -19,10 +19,41 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2021 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
+package com.buession.springcloud.feign.autoconfigure;
+
+import com.buession.springcloud.feign.interceptor.reactive.ReactiveClientHeadersRequestInterceptor;
+import com.buession.springcloud.feign.interceptor.servlet.ServletClientHeadersRequestInterceptor;
+import feign.RequestInterceptor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 /**
  * @author Yong.Teng
  */
-package com.buession.springcloud.feign.autoconfigure;
+@Configuration
+@ConditionalOnProperty(prefix = "spring.cloud.feign.apply-client-request-headers", name = "enable", havingValue =
+		"true", matchIfMissing = true)
+@ConditionalOnWebApplication
+public class FeignInterceptorConfiguration {
+
+	@Bean
+	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+	@ConditionalOnMissingBean
+	public RequestInterceptor servletClientHeadersRequestInterceptor(){
+		return new ServletClientHeadersRequestInterceptor();
+	}
+
+	@Bean
+	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
+	@ConditionalOnMissingBean
+	public RequestInterceptor reactiveClientHeadersRequestInterceptor(){
+		return new ReactiveClientHeadersRequestInterceptor();
+	}
+
+}

@@ -24,9 +24,9 @@
  * | Copyright @ 2013-2021 Buession.com Inc.														|
  * +------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.fegin.interceptor.servlet;
+package com.buession.springcloud.feign.interceptor.servlet;
 
-import com.buession.springcloud.fegin.interceptor.AbstractClientHeadersRequestInterceptor;
+import com.buession.springcloud.feign.interceptor.AbstractClientHeadersRequestInterceptor;
 import feign.RequestTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

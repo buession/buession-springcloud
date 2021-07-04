@@ -7,11 +7,11 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>1.2.1</version>
+		<version>1.2.2</version>
 	</parent>
 	<artifactId>buession-springcloud-fegin</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Fegin</description>
+	<description>Buession Framework Spring Cloud Feign</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -40,128 +40,19 @@
 		<url>https://github.com/buession/buession-springcloud</url>
 	</scm>
 
-	<properties>
-		<openfeign.version>11.1</openfeign.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-common</artifactId>
+			<artifactId>buession-springcloud-feign</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-hystrix</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.buession</groupId>
-			<artifactId>buession-web</artifactId>
-			<version>${buession.version}</version>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webflux</artifactId>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>${springframework.cloud.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.github.openfeign</groupId>
-			<artifactId>feign-core</artifactId>
-			<version>${openfeign.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.github.openfeign</groupId>
-			<artifactId>feign-httpclient</artifactId>
-			<version>${openfeign.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.github.openfeign</groupId>
-			<artifactId>feign-hystrix</artifactId>
-			<version>${openfeign.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.github.openfeign</groupId>
-			<artifactId>feign-slf4j</artifactId>
-			<version>${openfeign.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.reactivex</groupId>
-			<artifactId>rxjava</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk15on</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcpkix-jdk15on</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-afterburner</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<relocation>
+			<artifactId>buession-springcloud-feign</artifactId>
+		</relocation>
+	</distributionManagement>
 
 	<build>
 		<finalName>buession-springcloud-fegin</finalName>

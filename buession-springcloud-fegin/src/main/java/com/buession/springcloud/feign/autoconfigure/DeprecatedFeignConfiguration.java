@@ -22,38 +22,29 @@
  * | Copyright @ 2013-2021 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.fegin.autoconfigure;
+package com.buession.springcloud.feign.autoconfigure;
 
-import com.buession.springcloud.fegin.interceptor.reactive.ReactiveClientHeadersRequestInterceptor;
-import com.buession.springcloud.fegin.interceptor.servlet.ServletClientHeadersRequestInterceptor;
-import feign.RequestInterceptor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author Yong.Teng
  */
 @Configuration
-@ConditionalOnProperty(prefix = "spring.cloud.feign.apply-client-request-headers", name = "enable", havingValue =
-		"true", matchIfMissing = true)
 @ConditionalOnWebApplication
-public class FeignInterceptorConfiguration {
+@Deprecated
+public class DeprecatedFeignConfiguration {
 
-	@Bean
-	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-	@ConditionalOnMissingBean
-	public RequestInterceptor servletClientHeadersRequestInterceptor(){
-		return new ServletClientHeadersRequestInterceptor();
-	}
+	private final static Logger logger = LoggerFactory.getLogger(DeprecatedFeignConfiguration.class);
 
-	@Bean
-	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-	@ConditionalOnMissingBean
-	public RequestInterceptor reactiveClientHeadersRequestInterceptor(){
-		return new ReactiveClientHeadersRequestInterceptor();
+	@PostConstruct
+	public void initialize(){
+		logger.error("The name of the module is incorrect. Please use buession-springcloud-feign and remove " +
+				"buession-springcloud-fegin in pom.xml");
 	}
 
 }
