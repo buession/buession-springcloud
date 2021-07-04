@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>1.2.1</version>
+		<version>1.2.2</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession Springcloud Framework Parent</description>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -47,6 +47,7 @@
 		<module>../buession-springcloud-config-client</module>
 		<module>../buession-springcloud-config-server</module>
 		<module>../buession-springcloud-consul</module>
+		<module>../buession-springcloud-feign</module>
 		<module>../buession-springcloud-fegin</module>
 		<module>../buession-springcloud-gateway</module>
 		<module>../buession-springcloud-hystrix</module>
@@ -58,6 +59,10 @@
 		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>
+
+	<properties>
+		<alibaba.cloud.nacos.version>2.2.5.RELEASE</alibaba.cloud.nacos.version>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -90,6 +95,11 @@
 				<version>${springframework.cloud.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>com.netflix.archaius</groupId>
+				<artifactId>archaius-core</artifactId>
+				<version>0.7.7</version>
+			</dependency>
 			<dependency>
 				<groupId>com.netflix.servo</groupId>
 				<artifactId>servo-core</artifactId>
