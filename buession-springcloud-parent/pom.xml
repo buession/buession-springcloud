@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>1.2.2</version>
+		<version>1.3.0</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession Springcloud Framework Parent</description>
-	<version>1.2.2</version>
+	<version>1.3.0</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -61,7 +61,7 @@
 	</modules>
 
 	<properties>
-		<alibaba.cloud.nacos.version>2.2.5.RELEASE</alibaba.cloud.nacos.version>
+		<alibaba.cloud.nacos.version>2.2.6.RELEASE</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -96,20 +96,58 @@
 			</dependency>
 
 			<dependency>
+				<groupId>com.netflix.netflix-commons</groupId>
+				<artifactId>netflix-commons-util</artifactId>
+				<version>0.3.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.inject</groupId>
+						<artifactId>javax.inject</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
 				<groupId>com.netflix.archaius</groupId>
 				<artifactId>archaius-core</artifactId>
 				<version>0.7.7</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>com.netflix.servo</groupId>
 				<artifactId>servo-core</artifactId>
 				<version>0.13.2</version>
 			</dependency>
+			<dependency>
+				<groupId>com.netflix.hystrix</groupId>
+				<artifactId>hystrix-core</artifactId>
+				<version>1.5.18</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
 		<finalName>buession-springcloud-parent</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>changelog.txt</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
