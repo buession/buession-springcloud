@@ -36,7 +36,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Yong.Teng
  */
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConditionalOnProperty(prefix = "spring.cloud.feign.apply-client-request-headers", name = "enable", havingValue =
 		"true", matchIfMissing = true)
 @ConditionalOnWebApplication

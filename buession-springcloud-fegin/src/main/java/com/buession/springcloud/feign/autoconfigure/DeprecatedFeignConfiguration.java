@@ -34,7 +34,7 @@ import javax.annotation.PostConstruct;
 /**
  * @author Yong.Teng
  */
-@Configuration
+@Configuration(proxyBeanMethods = false)
 @ConditionalOnWebApplication
 @Deprecated
 public class DeprecatedFeignConfiguration {
