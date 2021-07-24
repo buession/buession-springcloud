@@ -1,4 +1,4 @@
-Buession SpringCloud Common Changelog
+Buession SpringCloud Fegin Changelog
 ===========================
 
 
