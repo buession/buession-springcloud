@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>1.3.1</version>
+		<version>1.3.2</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession Springcloud Framework Parent</description>
-	<version>1.3.1</version>
+	<version>1.3.2</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -86,13 +86,30 @@
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-commons</artifactId>
+				<version>2.2.9.RELEASE</version>
+				<exclusions>
+					<exclusion>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-context</artifactId>
-				<version>${springframework.cloud.version}</version>
+				<version>2.2.9.RELEASE</version>
+				<exclusions>
+					<exclusion>
+						<groupId>ch.qos.logback</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
-				<version>${springframework.cloud.version}</version>
+				<version>2.2.9.RELEASE</version>
 			</dependency>
 
 			<dependency>
