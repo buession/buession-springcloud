@@ -80,6 +80,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-spring-cloud-config-client</artifactId>
+			<version>${apache.logging.log4j.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
