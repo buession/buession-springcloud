@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.zuul.core;
@@ -29,22 +29,22 @@ package com.buession.springcloud.zuul.core;
  */
 public enum ZuulFilterType {
 
-    PRE("pre"),
+	PRE("pre"),
 
-    ROUTING("routing"),
+	ROUTING("routing"),
 
-    POST("post"),
+	POST("post"),
 
-    ERROR("error");
+	ERROR("error");
 
-    private String value;
+	private final String value;
 
-    ZuulFilterType(String value){
-        this.value = value;
-    }
+	ZuulFilterType(final String value){
+		this.value = value;
+	}
 
-    public String getValue(){
-        return value;
-    }
+	public String getValue(){
+		return value;
+	}
 
 }

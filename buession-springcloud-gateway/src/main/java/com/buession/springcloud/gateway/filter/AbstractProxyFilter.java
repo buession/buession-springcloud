@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2020 Buession.com Inc.														       |
+ * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.gateway.filter;
@@ -50,7 +50,7 @@ public abstract class AbstractProxyFilter implements ProxyFilter, GlobalFilter, 
 
 		Map<String, String> headers = getRequestHeaders(exchange);
 		if(headers != null){
-			headers.forEach((name, value)->serverHttpRequestBuilder.header(name, value));
+			headers.forEach(serverHttpRequestBuilder::header);
 		}
 
 		return chain.filter(exchange.mutate().request(serverHttpRequestBuilder.build()).build());
