@@ -1,5 +1,0 @@
-com.buession.springcloud.config.server
-com.buession.springcloud.config.server.web
-com.buession.springcloud.config.server.web.autoconfigure
-com.buession.springcloud.config.server.web.reactive
-com.buession.springcloud.config.server.web.servlet

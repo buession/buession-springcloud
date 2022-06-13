@@ -1,4 +1,0 @@
-com.buession.springcloud.feign.autoconfigure
-com.buession.springcloud.feign.interceptor
-com.buession.springcloud.feign.interceptor.reactive
-com.buession.springcloud.feign.interceptor.servlet
