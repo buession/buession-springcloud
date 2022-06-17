@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2021 Buession.com Inc.														       |
+ * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server.web.autoconfigure;
@@ -37,9 +37,9 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true", matchIfMissing = true)
 public class ConfigServerInfoConfiguration {
 
-	@Configuration
+	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-	public static class ServletConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
+	static class ServletConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean
@@ -49,9 +49,9 @@ public class ConfigServerInfoConfiguration {
 
 	}
 
-	@Configuration
+	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-	public static class ReactiveConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
+	static class ReactiveConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean

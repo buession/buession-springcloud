@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2021 Buession.com Inc.														       |
+ * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.feign.interceptor.reactive;
@@ -50,10 +50,14 @@ public class ReactiveClientHeadersRequestInterceptor extends AbstractClientHeade
 			mono.subscribe(request->{
 				request.getHeaders().forEach((name, value)->{
 					if(IGNORE_REQUEST_HEADERS.contains(name)){
-						logger.debug("Ignore feign request header, name: {}", name);
+						if(logger.isDebugEnabled()){
+							logger.debug("Ignore feign request header, name: {}", name);
+						}
 					}else{
 						requestTemplate.header(name, value);
-						logger.debug("Add feign request header, name: {}, values: {}", name, value);
+						if(logger.isDebugEnabled()){
+							logger.debug("Add feign request header, name: {}, values: {}", name, value);
+						}
 					}
 				});
 			});

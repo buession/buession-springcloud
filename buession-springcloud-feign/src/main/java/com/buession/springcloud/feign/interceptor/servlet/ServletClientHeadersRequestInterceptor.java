@@ -21,7 +21,7 @@
  * +------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										|
  * | Author: Yong.Teng <webmaster@buession.com> 													|
- * | Copyright @ 2013-2021 Buession.com Inc.														|
+ * | Copyright @ 2013-2022 Buession.com Inc.														|
  * +------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.feign.interceptor.servlet;
@@ -58,14 +58,17 @@ public class ServletClientHeadersRequestInterceptor extends AbstractClientHeader
 				String name = headerNames.nextElement();
 
 				if(IGNORE_REQUEST_HEADERS.contains(name)){
-					logger.debug("Ignore feign request header, name: {}", name);
-					continue;
+					if(logger.isDebugEnabled()){
+						logger.debug("Ignore feign request header, name: {}", name);
+					}
+				}else{
+					String value = request.getHeader(name);
+
+					requestTemplate.header(name, value);
+					if(logger.isDebugEnabled()){
+						logger.debug("Add feign request header, name: {}, values: {}", name, value);
+					}
 				}
-
-				String value = request.getHeader(name);
-
-				requestTemplate.header(name, value);
-				logger.debug("Add feign request header, name: {}, values: {}", name, value);
 			}
 		}catch(IllegalStateException e){
 			logger.error(e.getMessage());
