@@ -37,21 +37,21 @@ import org.springframework.context.annotation.Configuration;
  * @author Yong.Teng
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = "spring.cloud.feign.apply-client-request-headers", name = "enabled", havingValue =
-		"true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "spring.cloud.feign", name = {"applyClientRequestHeaders.enabled",
+		"apply-client-request-headers.enabled"}, havingValue = "true", matchIfMissing = true)
 @ConditionalOnWebApplication
 public class FeignInterceptorConfiguration {
 
 	@Bean
-	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 	@ConditionalOnMissingBean
+	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 	public RequestInterceptor servletClientHeadersRequestInterceptor(){
 		return new ServletClientHeadersRequestInterceptor();
 	}
 
 	@Bean
-	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 	@ConditionalOnMissingBean
+	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 	public RequestInterceptor reactiveClientHeadersRequestInterceptor(){
 		return new ReactiveClientHeadersRequestInterceptor();
 	}
