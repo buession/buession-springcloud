@@ -34,8 +34,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Yong.Teng
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = "spring.cloud.config", name = {"sendInfo",
-		"send-info"}, havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true", matchIfMissing = true)
 public class ConfigServerInfoConfiguration {
 
 	@Configuration(proxyBeanMethods = false)

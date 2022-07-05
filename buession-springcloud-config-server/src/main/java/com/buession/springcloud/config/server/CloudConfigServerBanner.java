@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2019 Buession.com Inc.														       |
+ * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server;
@@ -31,14 +31,14 @@ import com.buession.springboot.boot.banner.AbstractBanner;
  */
 public class CloudConfigServerBanner extends AbstractBanner {
 
-    @Override
-    protected String getTitle(){
-        return "(Liangvi Cloud Config Server)";
-    }
+	@Override
+	protected String getTitle(){
+		return "(Spring Cloud Config Server)";
+	}
 
-    @Override
-    protected String getVersion(){
-        return getVersion(CloudConfigServerBanner.class);
-    }
+	@Override
+	protected String getVersion(){
+		return getVersion(CloudConfigServerBanner.class);
+	}
 
 }

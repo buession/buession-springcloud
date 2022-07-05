@@ -37,23 +37,32 @@ import org.springframework.context.annotation.Configuration;
  * @author Yong.Teng
  */
 @Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = "spring.cloud.feign", name = {"applyClientRequestHeaders.enabled",
-		"apply-client-request-headers.enabled"}, havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "spring.cloud.feign", name = "apply-client-request-headers.enabled", havingValue = "true", matchIfMissing = true)
 @ConditionalOnWebApplication
 public class FeignInterceptorConfiguration {
 
-	@Bean
-	@ConditionalOnMissingBean
+	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-	public RequestInterceptor servletClientHeadersRequestInterceptor(){
-		return new ServletClientHeadersRequestInterceptor();
+	static class ServletFeignInterceptorConfiguration extends FeignInterceptorConfiguration {
+
+		@Bean
+		@ConditionalOnMissingBean
+		public RequestInterceptor servletClientHeadersRequestInterceptor(){
+			return new ServletClientHeadersRequestInterceptor();
+		}
+
 	}
 
-	@Bean
-	@ConditionalOnMissingBean
-	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-	public RequestInterceptor reactiveClientHeadersRequestInterceptor(){
-		return new ReactiveClientHeadersRequestInterceptor();
+	@Configuration(proxyBeanMethods = false)
+	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+	static class ReactiveFeignInterceptorConfiguration extends FeignInterceptorConfiguration {
+
+		@Bean
+		@ConditionalOnMissingBean
+		public RequestInterceptor reactiveClientHeadersRequestInterceptor(){
+			return new ReactiveClientHeadersRequestInterceptor();
+		}
+
 	}
 
 }

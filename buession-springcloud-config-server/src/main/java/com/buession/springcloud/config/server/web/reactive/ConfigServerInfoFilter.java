@@ -28,16 +28,15 @@ import com.buession.springcloud.config.server.CloudConfigServer;
 import com.buession.web.reactive.filter.ResponseHeadersFilter;
 
 import java.util.Collections;
-import java.util.Map;
 
 /**
  * @author Yong.Teng
  */
-public class ConfigServerInfoFilter extends ResponseHeadersFilter implements com.buession.springcloud.config.server.web.ConfigServerInfoFilter {
+public class ConfigServerInfoFilter extends ResponseHeadersFilter
+		implements com.buession.springcloud.config.server.web.ConfigServerInfoFilter {
 
-	@Override
-	public Map<String, String> getHeaders(){
-		return Collections.singletonMap(CONFIG_SERVER_VERSION_NAME, CloudConfigServer.VERSION);
+	public ConfigServerInfoFilter(){
+		super(Collections.singletonMap(CONFIG_SERVER_VERSION_NAME, CloudConfigServer.VERSION));
 	}
 
 }
