@@ -2,7 +2,7 @@
 ===========================
 
 
-## [2.0.0](https://github.com/buession/buession-springcloud/releases/tag/v2.0.1) (2022-07-18)
+## [2.0.1](https://github.com/buession/buession-springcloud/releases/tag/v2.0.1) (2022-07-18)
 
 ### 🔨依赖升级
 
