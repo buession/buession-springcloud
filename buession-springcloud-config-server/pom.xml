@@ -73,7 +73,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webflux</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 

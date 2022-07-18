@@ -67,7 +67,7 @@
 
 	<properties>
 		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
-		<alibaba.cloud.nacos.version>2.2.6.RELEASE</alibaba.cloud.nacos.version>
+		<alibaba.cloud.nacos.version>2.2.8.RELEASE</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -161,13 +161,6 @@
 				<filtering>false</filtering>
 				<includes>
 					<include>**/*.*</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>${project.basedir}</directory>
-				<filtering>false</filtering>
-				<includes>
-					<include>changelog.txt</include>
 				</includes>
 			</resource>
 		</resources>
