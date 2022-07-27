@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.0.1</version>
+		<version>2.0.2</version>
 	</parent>
 	<artifactId>buession-springcloud-feign</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
@@ -84,7 +84,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webflux</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 
@@ -118,7 +118,7 @@
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
 
