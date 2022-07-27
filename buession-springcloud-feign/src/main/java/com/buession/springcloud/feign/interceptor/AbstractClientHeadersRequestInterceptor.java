@@ -19,18 +19,18 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2021 Buession.com Inc.														       |
+ * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.feign.interceptor;
 
+import com.buession.core.builder.ListBuilder;
 import com.buession.core.utils.VersionUtils;
 import com.buession.springcloud.common.Version;
 import feign.Feign;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -45,7 +45,7 @@ public abstract class AbstractClientHeadersRequestInterceptor implements Request
 
 	protected final static String BUESSION_CLOUD_NAME = "X-Buession-Cloud-Version";
 
-	protected final static List<String> IGNORE_REQUEST_HEADERS = Arrays.asList("Accept-Encoding");
+	protected final static List<String> IGNORE_REQUEST_HEADERS = ListBuilder.of("Accept-Encoding");
 
 	protected final static String REQUEST_CONTEXT_CLIENT =
 			Feign.class.getSimpleName() + "/" + VersionUtils.determineClassVersion(Feign.class);
