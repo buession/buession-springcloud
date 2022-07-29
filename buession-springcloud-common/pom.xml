@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.0.2</version>
+		<version>2.0.3</version>
 	</parent>
 	<artifactId>buession-springcloud-common</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
@@ -45,6 +45,11 @@
 		<developerConnection>scm:git:https://github.com/buession/buession-springcloud.git</developerConnection>
 		<url>https://github.com/buession/buession-springcloud</url>
 	</scm>
+
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/buession/buession-springcloud/issues</url>
+	</issueManagement>
 
 	<dependencies>
 		<dependency>
