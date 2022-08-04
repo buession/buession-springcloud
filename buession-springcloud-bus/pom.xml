@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Hystrix</name>
+	<name>Buession Springcloud Bus</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.buession.springcloud</groupId>
@@ -9,9 +9,9 @@
 		<relativePath>../buession-springcloud-parent</relativePath>
 		<version>2.1.0</version>
 	</parent>
-	<artifactId>buession-springcloud-hystrix</artifactId>
+	<artifactId>buession-springcloud-bus</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Netflix Hystrix</description>
+	<description>Buession Framework Spring Cloud Bus</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -65,29 +65,18 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-			<version>${springcloud.netflix.version}</version>
+			<artifactId>spring-cloud-bus</artifactId>
+			<version>2.2.4.RELEASE</version>
 		</dependency>
-
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-afterburner</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.reactivestreams</groupId>
-			<artifactId>reactive-streams</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hdrhistogram</groupId>
-			<artifactId>HdrHistogram</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream</artifactId>
 		</dependency>
 
 		<dependency>
@@ -102,7 +91,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>buession-springcloud-hystrix</finalName>
+		<finalName>buession-springcloud-bus</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

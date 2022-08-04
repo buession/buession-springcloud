@@ -10,6 +10,11 @@
 - [openfeign] 版本升级至 11.9.1
 
 
+### ⭐ 新特性
+
+- **buession-springcloud-bus：** 新增 buession-springcloud-bus module
+
+
 ---
 
 
