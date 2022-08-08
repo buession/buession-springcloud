@@ -28,46 +28,65 @@ package com.buession.springcloud.feign.interceptor.servlet;
 
 import com.buession.springcloud.feign.interceptor.AbstractClientHeadersRequestInterceptor;
 import feign.RequestTemplate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
+import java.util.Set;
 
 /**
- * Servlet 请求头拦截器抽象类
+ * Servlet 模式请求头拦截器
  *
  * @author Yong.Teng
  */
 public class ServletClientHeadersRequestInterceptor extends AbstractClientHeadersRequestInterceptor {
 
-	private final static Logger logger = LoggerFactory.getLogger(ServletClientHeadersRequestInterceptor.class);
+	/**
+	 * 构造函数
+	 */
+	public ServletClientHeadersRequestInterceptor(){
+		super();
+	}
+
+	/**
+	 * 构造函数
+	 *
+	 * @param allowedHeaderNames
+	 * 		允许转发的请求头
+	 * @param ignoreHeaderNames
+	 * 		忽略转发的请求头
+	 *
+	 * @since 2.1.0
+	 */
+	public ServletClientHeadersRequestInterceptor(Set<String> allowedHeaderNames,
+												  Set<String> ignoreHeaderNames){
+		super(allowedHeaderNames, ignoreHeaderNames);
+	}
 
 	@Override
 	public void apply(final RequestTemplate requestTemplate){
 		try{
-			ServletRequestAttributes attributes =
+			ServletRequestAttributes requestAttributes =
 					(ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 
-			HttpServletRequest request = attributes.getRequest();
+			HttpServletRequest request = requestAttributes.getRequest();
 			Enumeration<String> headerNames = request.getHeaderNames();
 
 			while(headerNames != null && headerNames.hasMoreElements()){
 				String name = headerNames.nextElement();
 
-				if(IGNORE_REQUEST_HEADERS.contains(name)){
-					if(logger.isDebugEnabled()){
-						logger.debug("Ignore feign request header, name: {}", name);
-					}
-				}else{
-					String value = request.getHeader(name);
+				if(isIgnoreHeaderName(name) == false){
+					Enumeration<String> value = request.getHeaders(name);
+					List<String> values = new ArrayList<>();
 
-					requestTemplate.header(name, value);
-					if(logger.isDebugEnabled()){
-						logger.debug("Add feign request header, name: {}, values: {}", name, value);
+					while(value != null && value.hasMoreElements()){
+						values.add(value.nextElement());
 					}
+
+					applyHeader(requestTemplate, name, values);
 				}
 			}
 		}catch(IllegalStateException e){
