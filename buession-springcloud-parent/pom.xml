@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>2.0.2</version>
+		<version>2.1.0</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Springcloud Framework Parent</description>
-	<version>2.0.2</version>
+	<description>Buession SpringCloud Framework Parent</description>
+	<version>2.1.0</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -48,8 +48,14 @@
 		<url>https://github.com/buession/buession-springcloud</url>
 	</scm>
 
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/buession/buession-springcloud/issues</url>
+	</issueManagement>
+
 	<modules>
 		<module>../buession-springcloud-common</module>
+		<module>../buession-springcloud-bus</module>
 		<module>../buession-springcloud-config-client</module>
 		<module>../buession-springcloud-config-server</module>
 		<module>../buession-springcloud-consul</module>
@@ -66,7 +72,9 @@
 	</modules>
 
 	<properties>
+		<springcloud.base.version>2.2.9.RELEASE</springcloud.base.version>
 		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
+		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
 		<alibaba.cloud.nacos.version>2.2.8.RELEASE</alibaba.cloud.nacos.version>
 	</properties>
 
@@ -93,7 +101,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-commons</artifactId>
-				<version>2.2.9.RELEASE</version>
+				<version>${springcloud.base.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>ch.qos.logback</groupId>
@@ -104,7 +112,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-context</artifactId>
-				<version>2.2.9.RELEASE</version>
+				<version>${springcloud.base.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>ch.qos.logback</groupId>
@@ -116,6 +124,21 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
 				<version>2.2.10.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-stream</artifactId>
+				<version>3.0.13.RELEASE</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-validation</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.annotation</groupId>
+						<artifactId>javax.annotation-api</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>

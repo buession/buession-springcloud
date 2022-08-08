@@ -25,42 +25,50 @@
 package com.buession.springcloud.feign.interceptor.reactive;
 
 import com.buession.springcloud.feign.interceptor.AbstractClientHeadersRequestInterceptor;
-import com.buession.web.reactive.context.request.RequestContextHolder;
+import com.buession.web.reactive.context.request.ReactiveRequestAttributes;
 import feign.RequestTemplate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import reactor.core.publisher.Mono;
+import org.springframework.web.context.request.RequestContextHolder;
+
+import java.util.Set;
 
 /**
- * Reactive 请求头拦截器抽象类
+ * Reactive 模式请求头拦截器
  *
  * @author Yong.Teng
  * @since 1.2.1
  */
 public class ReactiveClientHeadersRequestInterceptor extends AbstractClientHeadersRequestInterceptor {
 
-	private final static Logger logger = LoggerFactory.getLogger(ReactiveClientHeadersRequestInterceptor.class);
+	/**
+	 * 构造函数
+	 */
+	public ReactiveClientHeadersRequestInterceptor(){
+		super();
+	}
+
+	/**
+	 * 构造函数
+	 *
+	 * @param allowedHeaderNames
+	 * 		允许转发的请求头
+	 * @param ignoreHeaderNames
+	 * 		忽略转发的请求头
+	 *
+	 * @since 2.1.0
+	 */
+	public ReactiveClientHeadersRequestInterceptor(Set<String> allowedHeaderNames,
+												   Set<String> ignoreHeaderNames){
+		super(allowedHeaderNames, ignoreHeaderNames);
+	}
 
 	@Override
 	public void apply(RequestTemplate requestTemplate){
 		try{
-			Mono<ServerHttpRequest> mono = RequestContextHolder.getRequest();
+			ReactiveRequestAttributes requestAttributes = (ReactiveRequestAttributes) RequestContextHolder.currentRequestAttributes();
+			ServerHttpRequest request = requestAttributes.getRequest();
 
-			mono.subscribe(request->{
-				request.getHeaders().forEach((name, value)->{
-					if(IGNORE_REQUEST_HEADERS.contains(name)){
-						if(logger.isDebugEnabled()){
-							logger.debug("Ignore feign request header, name: {}", name);
-						}
-					}else{
-						requestTemplate.header(name, value);
-						if(logger.isDebugEnabled()){
-							logger.debug("Add feign request header, name: {}, values: {}", name, value);
-						}
-					}
-				});
-			});
+			request.getHeaders().forEach((name, value)->applyHeader(requestTemplate, name, value));
 		}catch(IllegalStateException e){
 			logger.error(e.getMessage());
 		}finally{

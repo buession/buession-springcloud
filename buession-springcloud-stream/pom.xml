@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.0.2</version>
+		<version>2.1.0</version>
 	</parent>
 	<artifactId>buession-springcloud-stream</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
@@ -46,33 +46,32 @@
 		<url>https://github.com/buession/buession-springcloud</url>
 	</scm>
 
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/buession/buession-springcloud/issues</url>
+	</issueManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.buession.springcloud</groupId>
 			<artifactId>buession-springcloud-common</artifactId>
 			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-messaging</artifactId>
-			<version>${springframework.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream</artifactId>
-			<version>3.0.13.RELEASE</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-validation</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.annotation</groupId>
-					<artifactId>javax.annotation-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
