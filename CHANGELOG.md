@@ -2,7 +2,7 @@
 ===========================
 
 
-## [2.1.0](https://github.com/buession/buession-springcloud/releases/tag/v2.1.0) (2022-07-xx)
+## [2.1.0](https://github.com/buession/buession-springcloud/releases/tag/v2.1.0) (2022-08-07)
 
 ### 🔨依赖升级
 
@@ -13,6 +13,17 @@
 ### ⭐ 新特性
 
 - **buession-springcloud-bus：** 新增 buession-springcloud-bus module
+- **buession-springcloud-feign：** 可指定允许转发和忽略的请求头
+
+
+### 🔔 变化
+
+- **buession-springcloud-feign：** Servlet 模式请求头拦截器，ServletClientHeadersRequestInterceptor 将会转发重复请求头的所有值
+
+
+### 🐞 Bug 修复
+
+- **buession-springcloud-feign：** 修复 ReactiveFeignInterceptorConfiguration 自动配置设置成 Type.SERVLET 的 BUG
 
 
 ---
