@@ -13,7 +13,7 @@
 
 
 <p align="center">
-	<img src="docs/images/logo.png" alt="Buession Spring Cloud" title="Buession SpringCloud" width="280px" />
+	<img src="logo.png" alt="Buession Spring Cloud" title="Buession SpringCloud" width="280px" />
 </p>
 
 ## Requirements

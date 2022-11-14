@@ -18,7 +18,7 @@ assignees: ''
 
  - OS 信息：  [e.g.：MacOS Monterey 6Core 2.6GHz 16GB]
  - JDK 信息： [e.g.：OrcaleJDK 1.8.0_301]
- - 版本信息：[e.g.：buessionframework x.x.x]
+ - 版本信息：[e.g.：buession-springcloud x.x.x]
  
 
 ### 重现步骤
