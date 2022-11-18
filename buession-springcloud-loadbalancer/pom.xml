@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Common</name>
+	<name>Buession Springcloud LoadBalancer</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.buession.springcloud</groupId>
@@ -9,9 +9,9 @@
 		<relativePath>../buession-springcloud-parent</relativePath>
 		<version>2.2.0</version>
 	</parent>
-	<artifactId>buession-springcloud-common</artifactId>
+	<artifactId>buession-springcloud-loadbalancer</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Common</description>
+	<description>Buession Framework Spring Cloud LoadBalancer</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -53,43 +53,35 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.buession.springboot</groupId>
-			<artifactId>buession-springboot-boot</artifactId>
+			<groupId>com.buession.springcloud</groupId>
+			<artifactId>buession-springcloud-common</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-commons</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-context</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.retry</groupId>
-			<artifactId>spring-retry</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpcore</artifactId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+			<version>2.2.9.RELEASE</version>
 			<exclusions>
 				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.inject</groupId>
+					<artifactId>javax.inject</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-rsa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -104,7 +96,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>buession-springcloud-common</finalName>
+		<finalName>buession-springcloud-loadbalancer</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
