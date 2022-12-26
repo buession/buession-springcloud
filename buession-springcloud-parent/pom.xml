@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>2.1.1</version>
+		<version>2.2.0</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession SpringCloud Framework Parent</description>
-	<version>2.1.1</version>
+	<version>2.2.0</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -63,6 +63,7 @@
 		<module>../buession-springcloud-gateway</module>
 		<module>../buession-springcloud-hystrix</module>
 		<module>../buession-springcloud-kubernetes</module>
+		<module>../buession-springcloud-loadbalancer</module>
 		<module>../buession-springcloud-metrics</module>
 		<module>../buession-springcloud-nacos-config-client</module>
 		<module>../buession-springcloud-nacos-discovery</module>
@@ -72,6 +73,8 @@
 	</modules>
 
 	<properties>
+		<buession.version>2.2.0</buession.version>
+		<buession.springboot.version>2.2.0</buession.springboot.version>
 		<springcloud.base.version>2.2.9.RELEASE</springcloud.base.version>
 		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
