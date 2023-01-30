@@ -78,7 +78,7 @@
 		<springcloud.base.version>2.2.9.RELEASE</springcloud.base.version>
 		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
-		<alibaba.cloud.nacos.version>2.2.8.RELEASE</alibaba.cloud.nacos.version>
+		<alibaba.cloud.nacos.version>2.2.9.RELEASE</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -92,13 +92,6 @@
 				<groupId>com.buession.springboot</groupId>
 				<artifactId>buession-springboot-web</artifactId>
 				<version>${buession.springboot.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-autoconfigure-processor</artifactId>
-				<version>${springframework.boot.version}</version>
-				<optional>true</optional>
 			</dependency>
 
 			<dependency>
@@ -126,7 +119,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
-				<version>2.2.10.RELEASE</version>
+				<version>${springcloud.netflix.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>

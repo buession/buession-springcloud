@@ -67,6 +67,13 @@
 			<artifactId>buession-springcloud-hystrix</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.buession.springcloud</groupId>
+			<artifactId>buession-springcloud-loadbalancer</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
