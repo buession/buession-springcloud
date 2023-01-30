@@ -21,10 +21,61 @@
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
  * | Copyright @ 2013-2022 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
- */package com.buession.springcloud.nacos.discovery.autoconfigure;/**
- * 
- *
+ */
+package com.buession.springcloud.nacos.discovery.autoconfigure;
+
+import com.alibaba.cloud.nacos.ConditionalOnNacosDiscoveryEnabled;
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
+import com.alibaba.cloud.nacos.NacosServiceManager;
+import com.alibaba.cloud.nacos.discovery.NacosDiscoveryAutoConfiguration;
+import com.alibaba.cloud.nacos.discovery.NacosDiscoveryClientConfiguration;
+import com.alibaba.cloud.nacos.discovery.NacosWatch;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.cloud.client.ConditionalOnDiscoveryEnabled;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
  * @author Yong.Teng
  * @since 2.2.0
- */public class NacosDiscoveryConfiguration {
+ */
+@Configuration(proxyBeanMethods = false)
+@ConditionalOnDiscoveryEnabled
+@ConditionalOnNacosDiscoveryEnabled
+@AutoConfigureBefore({NacosDiscoveryClientConfiguration.class})
+@AutoConfigureAfter({NacosDiscoveryAutoConfiguration.class})
+public class NacosDiscoveryConfiguration {
+
+	/**
+	 * 解决在 Undertow 容器下停止时，报：
+	 * <a href="https://github.com/alibaba/spring-cloud-alibaba/issues/2652" target="_blank">java.lang.IllegalStateException: UT015023: This Context has been already
+	 * destroyed</a> 异常，解决方法：<a href="https://github.com/alibaba/spring-cloud-alibaba/issues/2589" target="_blank">https://github.com/alibaba/spring-cloud-alibaba/issues/2589</a>
+	 *
+	 * @param nacosServiceManager
+	 *        {@link NacosServiceManager} 实例
+	 * @param nacosDiscoveryProperties
+	 *        {@link NacosDiscoveryProperties} 实例
+	 *
+	 * @return {@link NacosWatch}
+	 */
+	@Bean
+	@ConditionalOnMissingBean
+	@ConditionalOnProperty(value = "spring.cloud.nacos.discovery.watch.enabled", matchIfMissing = true)
+	@ConditionalOnClass(name = {"io.undertow.Undertow"})
+	public NacosWatch nacosWatch(NacosServiceManager nacosServiceManager,
+								 NacosDiscoveryProperties nacosDiscoveryProperties){
+		return new NacosWatch(nacosServiceManager, nacosDiscoveryProperties) {
+
+			@Override
+			public int getPhase(){
+				return Integer.MAX_VALUE;
+			}
+
+		};
+	}
+
 }

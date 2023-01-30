@@ -26,4 +26,4 @@
  * @author Yong.Teng
  * @since 2.2.0
  */
-package com.buession.springcloud.nacos.discovery.context;
+package com.buession.springcloud.nacos.discovery.autoconfigure;

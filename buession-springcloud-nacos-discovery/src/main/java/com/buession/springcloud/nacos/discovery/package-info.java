@@ -23,8 +23,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  */
 /**
- * 
- *
  * @author Yong.Teng
  * @since 2.2.0
- */package com.buession.springcloud.nacos.discovery;
+ */
+package com.buession.springcloud.nacos.discovery;
