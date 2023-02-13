@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Config Server</name>
+	<name>Buession Springcloud Stream RabbitMQ</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.buession.springcloud</groupId>
-		<artifactId>buession-springcloud-parent</artifactId>
-		<relativePath>../buession-springcloud-parent</relativePath>
+		<groupId>com.buession.springcloud.stream</groupId>
+		<artifactId>buession-springcloud-stream-parent</artifactId>
+		<relativePath>../buession-springcloud-stream-parent</relativePath>
 		<version>2.2.0</version>
 	</parent>
-	<artifactId>buession-springcloud-config-server</artifactId>
+	<artifactId>buession-springcloud-stream-rabbitmq</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Config Server</description>
+	<description>Buession Framework Spring Cloud Stream For RabbitMQ</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -51,67 +51,96 @@
 		<url>https://github.com/buession/buession-springcloud/issues</url>
 	</issueManagement>
 
+	<properties>
+		<springframework.cloud.stream.rabbit.version>2.1.5.RELEASE</springframework.cloud.stream.rabbit.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-common</artifactId>
+			<groupId>com.buession.springcloud.stream</groupId>
+			<artifactId>buession-springcloud-stream-core</artifactId>
 			<version>${project.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-slf4j-impl</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>com.buession.springboot</groupId>
-			<artifactId>buession-springboot-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.owasp.antisamy</groupId>
-					<artifactId>antisamy</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-webflux</artifactId>
-			<scope>provided</scope>
-			<optional>true</optional>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>2.2.22.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-amqp</artifactId>
+			<version>${springframework.integration.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-			<version>${springcloud.config.version}</version>
+			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+			<version>3.0.13.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>spring-cloud-starter-stream-source-rabbit</artifactId>
+			<version>${springframework.cloud.stream.rabbit.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
-					<artifactId>*</artifactId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-security</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>spring-cloud-starter-stream-sink-rabbit</artifactId>
+			<version>${springframework.cloud.stream.rabbit.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-security</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-crypto</artifactId>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>5.16.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>http-client</artifactId>
+			<version>5.0.0</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-yaml</artifactId>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.yaml</groupId>
-			<artifactId>snakeyaml</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.jcraft</groupId>
-			<artifactId>jsch</artifactId>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
 		</dependency>
 
 		<dependency>
@@ -126,7 +155,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>buession-springcloud-config-server</finalName>
+		<finalName>buession-springcloud-stream-rabbitmq</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

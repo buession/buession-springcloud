@@ -15,6 +15,7 @@
 
 - **buession-springcloud-loadbalancer：** 新增 buession-springcloud-loadbalancer module
 - **buession-springcloud-nacos-discovery** 兼容处理 nacos discovery 在 undertow 容器中，停止服务时 java.lang.IllegalStateException: UT015023: This Context has been already 异常
+- **模块：** 新增 springcloud stream 子模块
 
 
 ---
