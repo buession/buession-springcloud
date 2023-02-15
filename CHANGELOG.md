@@ -9,6 +9,7 @@
 - [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v2.2.0)
 - spring-cloud-starter-alibaba-nacos-config(https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-config) 版本升级至 2.2.9.RELEASE
 - spring-cloud-starter-alibaba-nacos-discovery(https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-discovery) 版本升级至 2.2.9.RELEASE
+- io.projectreactor.netty:reactor-netty(https://github.com/reactor/reactor-netty) 版本升级至 0.9.25.RELEASE
 
 
 ### ⭐ 新特性
@@ -16,6 +17,11 @@
 - **buession-springcloud-loadbalancer：** 新增 buession-springcloud-loadbalancer module
 - **buession-springcloud-nacos-discovery** 兼容处理 nacos discovery 在 undertow 容器中，停止服务时 java.lang.IllegalStateException: UT015023: This Context has been already 异常
 - **模块：** 新增 springcloud stream 子模块
+
+
+### 🔔 变化
+
+- **buession-springcloud-stream：** 废弃该模块，迁移至 com.buession.springcloud.stream:buession-springcloud-stream-core
 
 
 ---

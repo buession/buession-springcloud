@@ -75,43 +75,9 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.buession.springboot</groupId>
-				<artifactId>buession-springboot-boot</artifactId>
-				<version>${buession.springboot.version}</version>
-			</dependency>
-
-			<!-- springframework integration start -->
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-core</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-jms</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-jmx</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-xml</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-ip</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<!-- springframework integration end -->
-
-			<dependency>
-				<groupId>com.jcraft</groupId>
-				<artifactId>jsch</artifactId>
-				<version>0.1.54</version>
+				<groupId>org.xerial.snappy</groupId>
+				<artifactId>snappy-java</artifactId>
+				<version>1.1.9.1</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -78,6 +78,7 @@
 		<springcloud.base.version>2.2.9.RELEASE</springcloud.base.version>
 		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
+		<springframework.integration.version>5.3.10.RELEASE</springframework.integration.version>
 		<alibaba.cloud.nacos.version>2.2.9.RELEASE</alibaba.cloud.nacos.version>
 	</properties>
 
@@ -93,6 +94,34 @@
 				<artifactId>buession-springboot-web</artifactId>
 				<version>${buession.springboot.version}</version>
 			</dependency>
+
+			<!-- springframework integration start -->
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-core</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-jms</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-jmx</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-xml</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-ip</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<!-- springframework integration end -->
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -173,7 +202,7 @@
 			<dependency>
 				<groupId>com.jcraft</groupId>
 				<artifactId>jsch</artifactId>
-				<version>0.1.54</version>
+				<version>0.1.55</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
