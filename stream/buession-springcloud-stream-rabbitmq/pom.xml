@@ -100,6 +100,10 @@
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-web</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -113,11 +117,19 @@
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-mongodb</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-security</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -132,11 +144,19 @@
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-mongodb</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-security</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>

@@ -65,17 +65,6 @@
 
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-oxm</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-xml</artifactId>
-		</dependency>
-
-		<!--
-		<dependency>
-			<groupId>org.springframework</groupId>
 			<artifactId>spring-messaging</artifactId>
 		</dependency>
 		<dependency>
@@ -89,13 +78,12 @@
 
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-core</artifactId>
+			<artifactId>spring-integration-xml</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-jmx</artifactId>
 		</dependency>
-		-->
 
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
@@ -113,6 +101,10 @@
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>

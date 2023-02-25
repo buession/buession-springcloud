@@ -73,6 +73,10 @@
 			<version>${springframework.cloud.kubernetes.version}</version>
 			<exclusions>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>javax.annotation</groupId>
 					<artifactId>javax.annotation-api</artifactId>
 				</exclusion>
@@ -90,6 +94,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-kubernetes-ribbon</artifactId>
 			<version>${springframework.cloud.kubernetes.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>

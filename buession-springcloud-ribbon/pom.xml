@@ -68,6 +68,10 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>javax.inject</groupId>
 					<artifactId>javax.inject</artifactId>
 				</exclusion>
@@ -131,6 +135,15 @@
 		<dependency>
 			<groupId>io.reactivex</groupId>
 			<artifactId>rxjava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
 		</dependency>
 
 		<dependency>

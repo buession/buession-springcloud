@@ -124,6 +124,10 @@
 					<artifactId>spring-boot-starter-web</artifactId>
 				</exclusion>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>com.vaadin.external.google</groupId>
 					<artifactId>android-json</artifactId>
 				</exclusion>

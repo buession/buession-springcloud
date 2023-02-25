@@ -64,6 +64,10 @@
 			<version>${alibaba.cloud.nacos.version}</version>
 			<exclusions>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
