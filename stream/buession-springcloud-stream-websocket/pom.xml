@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Zuul</name>
+	<name>Buession Springcloud Stream WebSocket</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.buession.springcloud</groupId>
-		<artifactId>buession-springcloud-parent</artifactId>
-		<relativePath>../buession-springcloud-parent</relativePath>
+		<groupId>com.buession.springcloud.stream</groupId>
+		<artifactId>buession-springcloud-stream-parent</artifactId>
+		<relativePath>../buession-springcloud-stream-parent</relativePath>
 		<version>2.2.0</version>
 	</parent>
-	<artifactId>buession-springcloud-zuul</artifactId>
+	<artifactId>buession-springcloud-stream-websocket</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Zuul</description>
+	<description>Buession Framework Spring Cloud Stream For WebSocket</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -51,31 +51,79 @@
 		<url>https://github.com/buession/buession-springcloud/issues</url>
 	</issueManagement>
 
+	<properties>
+		<springframework.cloud.stream.file.version>2.1.4.RELEASE</springframework.cloud.stream.file.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-common</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-ribbon</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-hystrix</artifactId>
+			<groupId>com.buession.springcloud.stream</groupId>
+			<artifactId>buession-springcloud-stream-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-			<version>2.2.10.RELEASE</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-jmx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-xml</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-websocket</artifactId>
+			<version>${springframework.integration.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>spring-cloud-starter-stream-source-websocket</artifactId>
+			<version>${springframework.cloud.stream.file.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
-					<artifactId>*</artifactId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-security</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud.stream.app</groupId>
+			<artifactId>spring-cloud-starter-stream-sink-websocket</artifactId>
+			<version>${springframework.cloud.stream.file.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-security</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
@@ -85,23 +133,13 @@
 		</dependency>
 
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>jakarta.servlet</groupId>
-			<artifactId>jakarta.servlet-api</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>buession-springcloud-zuul</finalName>
+		<finalName>buession-springcloud-stream-websocket</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

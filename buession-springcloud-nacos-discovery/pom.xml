@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.1.2</version>
+		<version>2.2.0</version>
 	</parent>
 	<artifactId>buession-springcloud-nacos-discovery</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
@@ -67,12 +67,23 @@
 			<artifactId>buession-springcloud-hystrix</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.buession.springcloud</groupId>
+			<artifactId>buession-springcloud-loadbalancer</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
 
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
 			<version>${alibaba.cloud.nacos.version}</version>
 			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
@@ -88,11 +99,6 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 

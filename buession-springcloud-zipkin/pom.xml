@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Stream</name>
+	<name>Buession Springcloud Zipkin</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.buession.springcloud</groupId>
@@ -9,9 +9,9 @@
 		<relativePath>../buession-springcloud-parent</relativePath>
 		<version>2.2.0</version>
 	</parent>
-	<artifactId>buession-springcloud-stream</artifactId>
+	<artifactId>buession-springcloud-zipkin</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
-	<description>Buession Framework Spring Cloud Stream</description>
+	<description>Buession Framework Spring Cloud Zipkin</description>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -53,21 +53,42 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.buession.springcloud.stream</groupId>
-			<artifactId>buession-springcloud-stream-core</artifactId>
+			<groupId>com.buession.springcloud</groupId>
+			<artifactId>buession-springcloud-common</artifactId>
 			<version>${project.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+			<version>2.2.8.RELEASE</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 	</dependencies>
 
-	<distributionManagement>
-		<relocation>
-			<groupId>com.buession.springcloud.stream</groupId>
-			<artifactId>buession-springcloud-stream-core</artifactId>
-		</relocation>
-	</distributionManagement>
-
 	<build>
-		<finalName>buession-springcloud-stream</finalName>
+		<finalName>buession-springcloud-zipkin</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

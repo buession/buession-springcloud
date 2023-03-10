@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>2.1.2</version>
+		<version>2.2.0</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://github.com/buession/buession-springcloud</url>
 	<description>Buession SpringCloud Framework Parent</description>
-	<version>2.1.2</version>
+	<version>2.2.0</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -63,25 +63,24 @@
 		<module>../buession-springcloud-gateway</module>
 		<module>../buession-springcloud-hystrix</module>
 		<module>../buession-springcloud-kubernetes</module>
+		<module>../buession-springcloud-loadbalancer</module>
 		<module>../buession-springcloud-metrics</module>
 		<module>../buession-springcloud-nacos-config-client</module>
 		<module>../buession-springcloud-nacos-discovery</module>
 		<module>../buession-springcloud-ribbon</module>
 		<module>../buession-springcloud-stream</module>
+		<module>../buession-springcloud-zipkin</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>
 
 	<properties>
-		<project.build.encoding>UTF-8</project.build.encoding>
-		<project.java.version>1.8</project.java.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<buession.version>2.1.2</buession.version>
-		<buession.springboot.version>2.1.2</buession.springboot.version>
+		<buession.version>2.2.0</buession.version>
+		<buession.springboot.version>2.2.0</buession.springboot.version>
 		<springcloud.base.version>2.2.9.RELEASE</springcloud.base.version>
 		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
-		<alibaba.cloud.nacos.version>2.2.8.RELEASE</alibaba.cloud.nacos.version>
+		<springframework.integration.version>5.3.10.RELEASE</springframework.integration.version>
+		<alibaba.cloud.nacos.version>2.2.9.RELEASE</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -97,18 +96,43 @@
 				<version>${buession.springboot.version}</version>
 			</dependency>
 
+			<!-- springframework integration start -->
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-autoconfigure-processor</artifactId>
-				<version>${springframework.boot.version}</version>
-				<optional>true</optional>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-core</artifactId>
+				<version>${springframework.integration.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-jms</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-jmx</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-xml</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.integration</groupId>
+				<artifactId>spring-integration-ip</artifactId>
+				<version>${springframework.integration.version}</version>
+			</dependency>
+			<!-- springframework integration end -->
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-commons</artifactId>
 				<version>${springcloud.base.version}</version>
 				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-starter</artifactId>
+					</exclusion>
 					<exclusion>
 						<groupId>ch.qos.logback</groupId>
 						<artifactId>*</artifactId>
@@ -121,6 +145,10 @@
 				<version>${springcloud.base.version}</version>
 				<exclusions>
 					<exclusion>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-starter</artifactId>
+					</exclusion>
+					<exclusion>
 						<groupId>ch.qos.logback</groupId>
 						<artifactId>*</artifactId>
 					</exclusion>
@@ -129,13 +157,23 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
-				<version>2.2.10.RELEASE</version>
+				<version>${springcloud.netflix.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-starter</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
 				<version>3.0.13.RELEASE</version>
 				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-starter</artifactId>
+					</exclusion>
 					<exclusion>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-starter-validation</artifactId>
@@ -178,6 +216,12 @@
 				<groupId>com.netflix.hystrix</groupId>
 				<artifactId>hystrix-core</artifactId>
 				<version>1.5.18</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.jcraft</groupId>
+				<artifactId>jsch</artifactId>
+				<version>0.1.55</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
