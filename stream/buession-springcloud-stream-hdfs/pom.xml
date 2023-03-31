@@ -53,7 +53,7 @@
 
 	<properties>
 		<springframework.cloud.stream.hdfs.version>2.1.4.RELEASE</springframework.cloud.stream.hdfs.version>
-		<hadoop.version>2.10.2</hadoop.version>
+		<hadoop.version>3.2.4</hadoop.version>
 	</properties>
 
 	<dependencies>
