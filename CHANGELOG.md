@@ -2,12 +2,13 @@
 ===========================
 
 
-## [2.2.1](https://github.com/buession/buession-springcloud/releases/tag/v2.2.1) (2023-xx-xx)
+## [2.2.1](https://github.com/buession/buession-springcloud/releases/tag/v2.2.1) (2023-03-31)
 
 ### 🔨依赖升级
 
 - [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v2.2.1)
 - [zstd-jni](https://github.com/luben/zstd-jni) 版本升级至 1.5.4-2
+
 
 ---
 
