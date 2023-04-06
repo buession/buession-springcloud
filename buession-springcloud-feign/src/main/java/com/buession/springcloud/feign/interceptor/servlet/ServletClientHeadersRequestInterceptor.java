@@ -21,7 +21,7 @@
  * +------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										|
  * | Author: Yong.Teng <webmaster@buession.com> 													|
- * | Copyright @ 2013-2022 Buession.com Inc.														|
+ * | Copyright @ 2013-2023 Buession.com Inc.														|
  * +------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.feign.interceptor.servlet;
@@ -61,8 +61,7 @@ public class ServletClientHeadersRequestInterceptor extends AbstractClientHeader
 	 *
 	 * @since 2.1.0
 	 */
-	public ServletClientHeadersRequestInterceptor(Set<String> allowedHeaderNames,
-												  Set<String> ignoreHeaderNames){
+	public ServletClientHeadersRequestInterceptor(Set<String> allowedHeaderNames, Set<String> ignoreHeaderNames){
 		super(allowedHeaderNames, ignoreHeaderNames);
 	}
 
@@ -78,16 +77,14 @@ public class ServletClientHeadersRequestInterceptor extends AbstractClientHeader
 			while(headerNames != null && headerNames.hasMoreElements()){
 				String name = headerNames.nextElement();
 
-				if(isIgnoreHeaderName(name) == false){
-					Enumeration<String> value = request.getHeaders(name);
-					List<String> values = new ArrayList<>();
+				Enumeration<String> value = request.getHeaders(name);
+				List<String> values = new ArrayList<>();
 
-					while(value != null && value.hasMoreElements()){
-						values.add(value.nextElement());
-					}
-
-					applyHeader(requestTemplate, name, values);
+				while(value != null && value.hasMoreElements()){
+					values.add(value.nextElement());
 				}
+
+				applyHeader(requestTemplate, name, values);
 			}
 		}catch(IllegalStateException e){
 			logger.error(e.getMessage());
