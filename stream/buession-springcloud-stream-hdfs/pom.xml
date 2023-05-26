@@ -200,6 +200,10 @@
 					<groupId>javax.xml.bind</groupId>
 					<artifactId>jaxb-api</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>com.zaxxer</groupId>
+					<artifactId>HikariCP-java7</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -275,6 +279,16 @@
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-guice</artifactId>
 			<version>${sun.jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>aopalliance</groupId>
+					<artifactId>aopalliance</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.inject</groupId>
+					<artifactId>javax.inject</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -317,6 +331,12 @@
 		<dependency>
 			<groupId>com.jcraft</groupId>
 			<artifactId>jsch</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>nimbus-jose-jwt</artifactId>
+			<version>9.31</version>
 		</dependency>
 
 		<dependency>
