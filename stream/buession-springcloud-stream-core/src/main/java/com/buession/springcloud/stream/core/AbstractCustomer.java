@@ -22,15 +22,55 @@
  * | Copyright @ 2013-2023 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server;
+package com.buession.springcloud.stream.core;
 
-import com.buession.core.utils.VersionUtils;
+import com.buession.core.utils.Assert;
+import com.buession.lang.Status;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
+ * 消息消费者抽象类
+ *
+ * @param <M>
+ * 		消息类型
+ * @param <S>
+ * 		消息消费 {@link Sink}
+ *
  * @author Yong.Teng
+ * @since 2.3.0
  */
-public class CloudConfigServer {
+public abstract class AbstractCustomer<M, S extends Sink> implements Customer<M> {
 
-	public final static String VERSION = VersionUtils.determineClassVersion(CloudConfigServer.class);
+	/**
+	 * 消息消费 {@link Sink}
+	 */
+	protected S sink;
+
+	protected Logger logger = LoggerFactory.getLogger(getClass());
+
+	/**
+	 * 构造函数
+	 *
+	 * @param sink
+	 * 		消息消费 {@link Sink}
+	 */
+	public AbstractCustomer(final S sink) {
+		Assert.isNull(sink, "Sink cloud not be null.");
+		this.sink = sink;
+	}
+
+	@Override
+	public void onMessage(final M message) {
+		Assert.isNull(message, "Message cloud not be null.");
+
+		if(consume(message) == Status.SUCCESS){
+			logger.info("Message consume success.");
+		}else{
+			logger.warn("Message consume failure.");
+		}
+	}
+
+	protected abstract Status consume(final M payload);
 
 }

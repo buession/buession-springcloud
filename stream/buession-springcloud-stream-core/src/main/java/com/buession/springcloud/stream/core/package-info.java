@@ -22,15 +22,8 @@
  * | Copyright @ 2013-2023 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server;
-
-import com.buession.core.utils.VersionUtils;
-
 /**
  * @author Yong.Teng
+ * @since 2.3.0
  */
-public class CloudConfigServer {
-
-	public final static String VERSION = VersionUtils.determineClassVersion(CloudConfigServer.class);
-
-}
+package com.buession.springcloud.stream.core;

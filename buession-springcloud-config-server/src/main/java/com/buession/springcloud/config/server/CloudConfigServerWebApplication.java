@@ -19,14 +19,16 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2020 Buession.com Inc.														       |
+ * | Copyright @ 2013-2023 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server;
 
 import com.buession.springboot.boot.application.Application;
 import com.buession.springboot.web.application.AbstractWebApplication;
+import com.buession.springboot.web.utils.WebApplicationTypeBuilder;
 import org.springframework.boot.Banner;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration;
@@ -68,7 +70,7 @@ public class CloudConfigServerWebApplication extends AbstractWebApplication {
 	}
 
 	@Override
-	protected Banner getBanner(){
+	public Banner getBanner(){
 		return new CloudConfigServerBanner();
 	}
 

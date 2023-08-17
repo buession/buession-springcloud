@@ -22,15 +22,25 @@
  * | Copyright @ 2013-2023 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server;
+package com.buession.springcloud.stream.core;
 
-import com.buession.core.utils.VersionUtils;
+import org.springframework.messaging.MessageChannel;
 
 /**
+ * 消息源
+ *
  * @author Yong.Teng
+ * @since 2.3.0
  */
-public class CloudConfigServer {
+@FunctionalInterface
+public interface Source {
 
-	public final static String VERSION = VersionUtils.determineClassVersion(CloudConfigServer.class);
+	/**
+	 * 消息输出通道
+	 *
+	 * @return {@link MessageChannel}
+	 */
+	MessageChannel output();
 
 }
+

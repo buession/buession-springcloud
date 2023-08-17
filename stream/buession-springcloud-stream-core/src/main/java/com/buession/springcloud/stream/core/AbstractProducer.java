@@ -22,15 +22,60 @@
  * | Copyright @ 2013-2023 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.config.server;
+package com.buession.springcloud.stream.core;
 
-import com.buession.core.utils.VersionUtils;
+import com.buession.core.utils.Assert;
+import com.buession.lang.Status;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.support.MessageBuilder;
 
 /**
+ * 消息生产者抽象类
+ *
+ * @param <M>
+ * 		消息类型
+ * @param <S>
+ * 		消息源 {@link Source}
+ *
  * @author Yong.Teng
+ * @since 2.3.0
  */
-public class CloudConfigServer {
+public abstract class AbstractProducer<M, S extends Source> implements Producer<M> {
 
-	public final static String VERSION = VersionUtils.determineClassVersion(CloudConfigServer.class);
+	/**
+	 * 消息源 {@link Source}
+	 */
+	protected S source;
+
+	protected Logger logger = LoggerFactory.getLogger(getClass());
+
+	/**
+	 * 构造函数
+	 *
+	 * @param source
+	 * 		消息源 {@link Source}
+	 */
+	public AbstractProducer(final S source) {
+		Assert.isNull(source, "Source cloud not be null.");
+		this.source = source;
+	}
+
+	@Override
+	public Status sendMessage(final M message, final MessageHeaders headers, final long timeout) {
+		Assert.isNull(message, "Message cloud not be null.");
+
+		org.springframework.messaging.Message<M> actualMessage = headers == null ?
+				MessageBuilder.withPayload(message).build() : MessageBuilder.createMessage(message, headers);
+
+		if(source.output().send(actualMessage, timeout)){
+			logger.info("Message send success.");
+			return Status.SUCCESS;
+		}else{
+			logger.warn("Message send failure.");
+			return Status.FAILURE;
+		}
+	}
 
 }

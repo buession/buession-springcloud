@@ -2,6 +2,21 @@
 ===========================
 
 
+## [2.3.0](https://github.com/buession/buession-springcloud/releases/tag/v2.3.0) (2023-08-17)
+
+### 🔨依赖升级
+
+- [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v2.3.0)
+
+
+### 🐞 Bug 修复
+
+- **buession-springcloud-config-server** 修复 CloudConfigServerWebApplication 在 reactive 模式下无法启动的问题
+
+
+---
+
+
 ## [2.2.1](https://github.com/buession/buession-springcloud/releases/tag/v2.2.1) (2023-03-31)
 
 ### 🔨依赖升级
