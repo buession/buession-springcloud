@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<openfeign.version>11.9.1</openfeign.version>
+		<openfeign.version>12.4</openfeign.version>
 	</properties>
 
 	<dependencies>
