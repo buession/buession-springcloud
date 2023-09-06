@@ -10,6 +10,11 @@
 - [openfeign] 版本升级至 12.4
 
 
+### 🔔 变化
+
+- **buession-springcloud-feign：** 移除 org.bouncycastle 依赖
+
+
 ---
 
 
