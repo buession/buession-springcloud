@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud.stream</groupId>
 		<artifactId>buession-springcloud-stream-parent</artifactId>
 		<relativePath>../buession-springcloud-stream-parent</relativePath>
-		<version>2.3.0</version>
+		<version>2.3.1</version>
 	</parent>
 	<artifactId>buession-springcloud-stream-websocket</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<springframework.cloud.stream.file.version>2.1.4.RELEASE</springframework.cloud.stream.file.version>
+		<springframework.cloud.stream.websocket.version>2.1.4.RELEASE</springframework.cloud.stream.websocket.version>
 	</properties>
 
 	<dependencies>
@@ -96,7 +96,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
 			<artifactId>spring-cloud-starter-stream-source-websocket</artifactId>
-			<version>${springframework.cloud.stream.file.version}</version>
+			<version>${springframework.cloud.stream.websocket.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -119,7 +119,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud.stream.app</groupId>
 			<artifactId>spring-cloud-starter-stream-sink-websocket</artifactId>
-			<version>${springframework.cloud.stream.file.version}</version>
+			<version>${springframework.cloud.stream.websocket.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
