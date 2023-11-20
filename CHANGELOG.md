@@ -2,7 +2,7 @@
 ===========================
 
 
-## [2.3.1](https://github.com/buession/buession-springcloud/releases/tag/v2.3.1) (2023-xx-xx)
+## [2.3.1](https://github.com/buession/buession-springcloud/releases/tag/v2.3.1) (2023-11-20)
 
 ### 🔨依赖升级
 
