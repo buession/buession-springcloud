@@ -2,6 +2,22 @@
 ===========================
 
 
+## [2.3.1](https://github.com/buession/buession-springcloud/releases/tag/v2.3.1) (2023-11-20)
+
+### 🔨依赖升级
+
+- [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v2.3.1)
+- [openfeign] 版本升级至 12.4
+
+
+### 🔔 变化
+
+- **buession-springcloud-feign：** 移除 org.bouncycastle 依赖
+
+
+---
+
+
 ## [2.3.0](https://github.com/buession/buession-springcloud/releases/tag/v2.3.0) (2023-08-17)
 
 ### 🔨依赖升级
