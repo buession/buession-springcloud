@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud.stream</groupId>
 		<artifactId>buession-springcloud-stream-parent</artifactId>
 		<relativePath>../buession-springcloud-stream-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-stream-syslog</artifactId>
 	<url>https://springcloud.buession.com/</url>

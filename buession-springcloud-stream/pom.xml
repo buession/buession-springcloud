@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-stream</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -50,14 +50,6 @@
 		<system>github</system>
 		<url>https://github.com/buession/buession-springcloud/issues</url>
 	</issueManagement>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.buession.springcloud.stream</groupId>
-			<artifactId>buession-springcloud-stream-core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
 
 	<distributionManagement>
 		<relocation>

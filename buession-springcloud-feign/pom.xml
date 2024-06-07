@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-feign</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<openfeign.version>12.4</openfeign.version>
+		<openfeign.version>13.2.1</openfeign.version>
 	</properties>
 
 	<dependencies>
@@ -71,8 +71,8 @@
 			<groupId>com.buession</groupId>
 			<artifactId>buession-web</artifactId>
 			<version>${buession.version}</version>
-			<scope>compile</scope>
 			<optional>true</optional>
+			<scope>compile</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>

@@ -1,6 +1,16 @@
  Buession SpringCloud Changelog
 ===========================
 
+## [3.0.0](https://github.com/buession/buession-springcloud/releases/tag/v3.0.0) (2024-xx-xx)
+
+### 🔨依赖升级
+
+- [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v3.0.0)
+- [openfeign] 版本升级至 13.2.1
+
+
+---
+
 
 ## [2.3.3](https://github.com/buession/buession-springcloud/releases/tag/v2.3.3) (2024-05-06)
 

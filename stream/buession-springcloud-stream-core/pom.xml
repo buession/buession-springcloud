@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud.stream</groupId>
 		<artifactId>buession-springcloud-stream-parent</artifactId>
 		<relativePath>../buession-springcloud-stream-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-stream-core</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -132,31 +132,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!--
-		<dependency>
-			<groupId>org.springframework.cloud.stream.app</groupId>
-			<artifactId>spring-cloud-starter-stream-common-analytics</artifactId>
-			<version>2.1.4.RELEASE</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-security</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-web</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		-->
 
 		<dependency>
 			<groupId>jakarta.annotation</groupId>
