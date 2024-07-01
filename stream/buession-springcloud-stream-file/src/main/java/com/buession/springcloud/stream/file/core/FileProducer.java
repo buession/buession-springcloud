@@ -22,20 +22,20 @@
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.stream.kafka.core;
+package com.buession.springcloud.stream.file.core;
 
 import com.buession.springcloud.stream.core.Producer;
 
 /**
- * Kafka 消息生产者
+ * File 消息生产者
  *
  * @param <M>
  * 		消息类型
  *
  * @author Yong.Teng
- * @since 2.3.0
+ * @since 3.0.0
  */
 @FunctionalInterface
-public interface KafkaProducer<M> extends Producer<M> {
+public interface FileProducer<M> extends Producer<M> {
 
 }

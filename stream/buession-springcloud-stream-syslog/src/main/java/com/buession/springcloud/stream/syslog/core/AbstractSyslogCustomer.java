@@ -22,16 +22,13 @@
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.stream.kafka.core;
+package com.buession.springcloud.stream.syslog.core;
 
-import com.buession.core.utils.Assert;
-import com.buession.lang.Status;
 import com.buession.springcloud.stream.core.AbstractCustomer;
 import com.buession.springcloud.stream.core.Sink;
-import org.springframework.kafka.support.Acknowledgment;
 
 /**
- * Kafka 消息消费者抽象类
+ * Syslog 消息消费者抽象类
  *
  * @param <M>
  * 		消息类型
@@ -41,8 +38,8 @@ import org.springframework.kafka.support.Acknowledgment;
  * @author Yong.Teng
  * @since 3.0.0
  */
-public abstract class AbstractKafkaCustomer<M, S extends Sink> extends AbstractCustomer<M, S>
-		implements KafkaCustomer<M> {
+public abstract class AbstractSyslogCustomer<M, S extends Sink> extends AbstractCustomer<M, S>
+		implements SyslogCustomer<M> {
 
 	/**
 	 * 构造函数
@@ -50,53 +47,8 @@ public abstract class AbstractKafkaCustomer<M, S extends Sink> extends AbstractC
 	 * @param sink
 	 * 		消息消费 {@link Sink}
 	 */
-	public AbstractKafkaCustomer(final S sink) {
+	public AbstractSyslogCustomer(final S sink) {
 		super(sink);
-	}
-
-	@Override
-	public void onMessage(final M message, final Acknowledgment acknowledgment) {
-		Assert.isNull(message, "Message cloud not be null.");
-
-		if(consume(message) == Status.SUCCESS){
-			onSuccess(message, acknowledgment);
-			logger.info("Message consume success.");
-		}else{
-			logger.warn("Message consume failure.");
-		}
-	}
-
-	/**
-	 * 消息消费成功事件回调
-	 *
-	 * @param message
-	 * 		消息
-	 * @param acknowledgment
-	 *        {@link Acknowledgment}
-	 *
-	 * @return 执行结果
-	 */
-	protected Status onSuccess(final M message, final Acknowledgment acknowledgment) {
-		if(acknowledgment != null){
-			logger.debug("Acknowledgment acknowledge");
-			acknowledgment.acknowledge();
-		}
-
-		return Status.SUCCESS;
-	}
-
-	/**
-	 * 消息消费失败事件回调
-	 *
-	 * @param message
-	 * 		消息
-	 * @param acknowledgment
-	 *        {@link Acknowledgment}
-	 *
-	 * @return 执行结果
-	 */
-	protected Status onFailure(final M message, final Acknowledgment acknowledgment) {
-		return Status.SUCCESS;
 	}
 
 }

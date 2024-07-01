@@ -19,79 +19,23 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2023 Buession.com Inc.														       |
+ * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.stream.core;
+package com.buession.springcloud.stream.kafka.core;
 
-import com.buession.lang.Status;
-import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.MessageHeaders;
+import com.buession.springcloud.stream.core.Producer;
 
 /**
- * 消息生产者
+ * Kafka 消息生产者
  *
  * @param <M>
  * 		消息类型
  *
  * @author Yong.Teng
- * @since 2.3.0
+ * @since 3.0.0
  */
 @FunctionalInterface
-public interface Producer<M> {
-
-	/**
-	 * 发送队列消息
-	 *
-	 * @param message
-	 * 		消息
-	 *
-	 * @return 消息发送结果
-	 */
-	default Status sendMessage(final M message) {
-		return sendMessage(message, MessageChannel.INDEFINITE_TIMEOUT);
-	}
-
-	/**
-	 * 发送队列消息
-	 *
-	 * @param message
-	 * 		消息
-	 * @param timeout
-	 * 		发送消息超时时间
-	 *
-	 * @return 消息发送结果
-	 */
-	default Status sendMessage(final M message, final long timeout) {
-		return sendMessage(message, null, timeout);
-	}
-
-	/**
-	 * 发送队列消息
-	 *
-	 * @param message
-	 * 		消息
-	 * @param headers
-	 * 		消息头
-	 *
-	 * @return 消息发送结果
-	 */
-	default Status sendMessage(final M message, final MessageHeaders headers) {
-		return sendMessage(message, headers, MessageChannel.INDEFINITE_TIMEOUT);
-	}
-
-	/**
-	 * 发送队列消息
-	 *
-	 * @param message
-	 * 		消息
-	 * @param headers
-	 * 		消息头
-	 * @param timeout
-	 * 		发送消息超时时间
-	 *
-	 * @return 消息发送结果
-	 */
-	Status sendMessage(final M message, final MessageHeaders headers, final long timeout);
+public interface KafkaProducer<M> extends Producer<M> {
 
 }

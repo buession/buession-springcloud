@@ -22,12 +22,12 @@
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.stream.kafka.core;
+package com.buession.springcloud.stream.rocketmq.core;
 
 import com.buession.springcloud.stream.core.Producer;
 
 /**
- * Kafka 消息生产者
+ * RocketMQ 消息生产者
  *
  * @param <M>
  * 		消息类型
@@ -36,6 +36,6 @@ import com.buession.springcloud.stream.core.Producer;
  * @since 3.0.0
  */
 @FunctionalInterface
-public interface KafkaProducer<M> extends Producer<M> {
+public interface RocketMqProducer<M> extends Producer<M> {
 
 }

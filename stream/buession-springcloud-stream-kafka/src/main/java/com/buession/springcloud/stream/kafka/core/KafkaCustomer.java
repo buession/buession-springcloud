@@ -22,26 +22,30 @@
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.stream.core;
+package com.buession.springcloud.stream.kafka.core;
+
+import com.buession.springcloud.stream.core.Customer;
+import org.springframework.kafka.support.Acknowledgment;
 
 /**
- * 消息消费者
+ * Kafka 消息消费者
  *
  * @param <M>
  * 		消息类型
  *
  * @author Yong.Teng
- * @since 2.3.0
+ * @since 3.0.0
  */
-@FunctionalInterface
-public interface Customer<M> {
+public interface KafkaCustomer<M> extends Customer<M> {
 
 	/**
 	 * 消息消费
 	 *
 	 * @param message
 	 * 		消息
+	 * @param acknowledgment
+	 *        {@link Acknowledgment}
 	 */
-	void onMessage(final M message);
+	void onMessage(final M message, final Acknowledgment acknowledgment);
 
 }

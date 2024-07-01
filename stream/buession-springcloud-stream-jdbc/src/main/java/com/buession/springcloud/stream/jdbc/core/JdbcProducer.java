@@ -27,7 +27,7 @@ package com.buession.springcloud.stream.jdbc.core;
 import com.buession.springcloud.stream.core.Producer;
 
 /**
- * Kafka 消息生产者
+ * JDBC 消息生产者
  *
  * @param <M>
  * 		消息类型
@@ -36,6 +36,6 @@ import com.buession.springcloud.stream.core.Producer;
  * @since 3.0.0
  */
 @FunctionalInterface
-public interface KafkaProducer<M> extends Producer<M> {
+public interface JdbcProducer<M> extends Producer<M> {
 
 }

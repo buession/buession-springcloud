@@ -25,7 +25,6 @@
 package com.buession.springcloud.stream.file.core;
 
 import com.buession.springcloud.stream.core.Customer;
-import org.springframework.kafka.support.Acknowledgment;
 
 /**
  * Kafka 消息消费者
@@ -36,16 +35,6 @@ import org.springframework.kafka.support.Acknowledgment;
  * @author Yong.Teng
  * @since 3.0.0
  */
-public interface KafkaCustomer<M> extends Customer<M> {
-
-	/**
-	 * 消息消费
-	 *
-	 * @param message
-	 * 		消息
-	 * @param acknowledgment
-	 *        {@link Acknowledgment}
-	 */
-	void onMessage(final M message, final Acknowledgment acknowledgment);
+public interface FileCustomer<M> extends Customer<M> {
 
 }

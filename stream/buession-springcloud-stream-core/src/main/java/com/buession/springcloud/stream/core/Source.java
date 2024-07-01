@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2023 Buession.com Inc.														       |
+ * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.stream.core;
@@ -36,7 +36,7 @@ import org.springframework.messaging.MessageChannel;
 public interface Source {
 
 	/**
-	 * 消息输出通道
+	 * 消息输入通道
 	 *
 	 * @return {@link MessageChannel}
 	 */

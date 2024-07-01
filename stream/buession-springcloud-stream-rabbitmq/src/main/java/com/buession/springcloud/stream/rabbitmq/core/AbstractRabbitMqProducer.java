@@ -22,13 +22,13 @@
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
-package com.buession.springcloud.stream.kafka.core;
+package com.buession.springcloud.stream.rabbitmq.core;
 
 import com.buession.springcloud.stream.core.AbstractProducer;
 import com.buession.springcloud.stream.core.Source;
 
 /**
- * Kafka 消息生产者抽象类
+ * RabbitMQ 消息生产者抽象类
  *
  * @param <M>
  * 		消息类型
@@ -38,8 +38,8 @@ import com.buession.springcloud.stream.core.Source;
  * @author Yong.Teng
  * @since 3.0.0
  */
-public abstract class AbstractKafkaProducer<M, S extends Source> extends AbstractProducer<M, S>
-		implements KafkaProducer<M> {
+public abstract class AbstractRabbitMqProducer<M, S extends Source> extends AbstractProducer<M, S>
+		implements RabbitMqProducer<M> {
 
 	/**
 	 * 构造函数
@@ -47,7 +47,7 @@ public abstract class AbstractKafkaProducer<M, S extends Source> extends Abstrac
 	 * @param source
 	 * 		消息源 {@link Source}
 	 */
-	public AbstractKafkaProducer(final S source) {
+	public AbstractRabbitMqProducer(final S source) {
 		super(source);
 	}
 

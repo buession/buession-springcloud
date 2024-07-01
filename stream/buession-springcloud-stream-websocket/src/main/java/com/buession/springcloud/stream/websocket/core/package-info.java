@@ -26,4 +26,4 @@
  * @author Yong.Teng
  * @since 3.0.0
  */
-package com.buession.springcloud.stream.kafka.core;
+package com.buession.springcloud.stream.websocket.core;
