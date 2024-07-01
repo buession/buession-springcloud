@@ -120,6 +120,10 @@
 			<version>${springframework.cloud.stream.syslog.version}</version>
 			<exclusions>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
@@ -130,10 +134,6 @@
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-web</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>com.vaadin.external.google</groupId>

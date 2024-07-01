@@ -89,6 +89,12 @@
 				<groupId>com.buession.springboot</groupId>
 				<artifactId>buession-springboot-boot</artifactId>
 				<version>${buession.springboot.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-actuator</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>com.buession.springboot</groupId>
@@ -134,6 +140,10 @@
 						<artifactId>spring-cloud-starter</artifactId>
 					</exclusion>
 					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-actuator</artifactId>
+					</exclusion>
+					<exclusion>
 						<groupId>ch.qos.logback</groupId>
 						<artifactId>*</artifactId>
 					</exclusion>
@@ -147,6 +157,10 @@
 					<exclusion>
 						<groupId>org.springframework.cloud</groupId>
 						<artifactId>spring-cloud-starter</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-actuator</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>ch.qos.logback</groupId>
@@ -163,6 +177,10 @@
 						<groupId>org.springframework.cloud</groupId>
 						<artifactId>spring-cloud-starter</artifactId>
 					</exclusion>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-actuator</artifactId>
+					</exclusion>
 				</exclusions>
 			</dependency>
 			<dependency>
@@ -173,6 +191,10 @@
 					<exclusion>
 						<groupId>org.springframework.cloud</groupId>
 						<artifactId>spring-cloud-starter</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-actuator</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework.boot</groupId>

@@ -125,6 +125,10 @@
 			<version>${springframework.cloud.stream.rabbit.version}</version>
 			<exclusions>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
@@ -141,8 +145,8 @@
 					<artifactId>spring-boot-starter-web</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter</artifactId>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-actuator</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -152,6 +156,10 @@
 			<version>${springframework.cloud.stream.rabbit.version}</version>
 			<exclusions>
 				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
@@ -168,8 +176,8 @@
 					<artifactId>spring-boot-starter-web</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter</artifactId>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-actuator</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -190,6 +198,11 @@
 		<dependency>
 			<groupId>com.rabbitmq</groupId>
 			<artifactId>http-client</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
 		</dependency>
 
 		<dependency>
