@@ -59,6 +59,7 @@
 		<module>../buession-springcloud-config-client</module>
 		<module>../buession-springcloud-config-server</module>
 		<module>../buession-springcloud-consul</module>
+		<module>../buession-springcloud-dubbo</module>
 		<module>../buession-springcloud-feign</module>
 		<module>../buession-springcloud-gateway</module>
 		<module>../buession-springcloud-hystrix</module>
