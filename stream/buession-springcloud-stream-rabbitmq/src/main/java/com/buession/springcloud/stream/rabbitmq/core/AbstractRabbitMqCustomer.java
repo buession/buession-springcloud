@@ -24,8 +24,15 @@
  */
 package com.buession.springcloud.stream.rabbitmq.core;
 
+import com.buession.core.utils.Assert;
+import com.buession.lang.Status;
 import com.buession.springcloud.stream.core.AbstractCustomer;
 import com.buession.springcloud.stream.core.Sink;
+import com.rabbitmq.client.Channel;
+import org.springframework.amqp.support.AmqpHeaders;
+import org.springframework.messaging.handler.annotation.Header;
+
+import java.io.IOException;
 
 /**
  * RabbitMQ 消息消费者抽象类
@@ -49,6 +56,73 @@ public abstract class AbstractRabbitMqCustomer<M, S extends Sink> extends Abstra
 	 */
 	public AbstractRabbitMqCustomer(final S sink) {
 		super(sink);
+	}
+
+	@Override
+	public void onMessage(final M message, final Channel channel,
+						  @Header(AmqpHeaders.DELIVERY_TAG) final long deliveryTag) {
+		Assert.isNull(message, "Message cloud not be null.");
+
+		try{
+			if(consume(message) == Status.SUCCESS){
+				onSuccess(message, channel, deliveryTag);
+				logger.info("Message consume success.");
+			}else{
+				logger.warn("Message consume failure.");
+			}
+		}catch(Exception e){
+			logger.warn("Message consume failure.");
+			onFailure(message, channel, deliveryTag);
+		}
+	}
+
+	/**
+	 * 消息消费成功事件回调
+	 *
+	 * @param message
+	 * 		消息
+	 * @param channel
+	 *        {@link Channel}
+	 * @param deliveryTag
+	 * 		消息唯一标记
+	 *
+	 * @return 执行结果
+	 */
+	protected Status onSuccess(final M message, final Channel channel, final long deliveryTag) throws IOException {
+		if(channel != null){
+			logger.debug("basicAck Message: {}", deliveryTag);
+			channel.basicAck(deliveryTag, false);
+		}
+
+		return Status.SUCCESS;
+	}
+
+	/**
+	 * 消息消费失败事件回调
+	 *
+	 * @param message
+	 * 		消息
+	 * @param channel
+	 *        {@link Channel}
+	 * @param deliveryTag
+	 * 		消息唯一标记
+	 *
+	 * @return 执行结果
+	 */
+	protected Status onFailure(final M message, final Channel channel, final long deliveryTag) {
+		try{
+			// 拒绝消息，并将其重新放入队列
+			channel.basicNack(deliveryTag, false, true);
+			if(logger.isWarnEnabled()){
+				logger.warn("requeue Message: {}", deliveryTag);
+			}
+			return Status.SUCCESS;
+		}catch(IOException e){
+			if(logger.isErrorEnabled()){
+				logger.warn("requeue Message: {} error: {}", deliveryTag, e.getMessage());
+			}
+			return Status.FAILURE;
+		}
 	}
 
 }

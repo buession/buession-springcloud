@@ -29,6 +29,8 @@ import com.buession.lang.Status;
 import com.buession.springcloud.stream.core.AbstractCustomer;
 import com.buession.springcloud.stream.core.Sink;
 import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 
 /**
  * Kafka 消息消费者抽象类
@@ -55,7 +57,7 @@ public abstract class AbstractKafkaCustomer<M, S extends Sink> extends AbstractC
 	}
 
 	@Override
-	public void onMessage(final M message, final Acknowledgment acknowledgment) {
+	public void onMessage(final M message, @Header(KafkaHeaders.ACKNOWLEDGMENT) final Acknowledgment acknowledgment) {
 		Assert.isNull(message, "Message cloud not be null.");
 
 		if(consume(message) == Status.SUCCESS){

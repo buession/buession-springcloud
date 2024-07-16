@@ -26,6 +26,8 @@ package com.buession.springcloud.stream.kafka.core;
 
 import com.buession.springcloud.stream.core.Customer;
 import org.springframework.kafka.support.Acknowledgment;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 
 /**
  * Kafka 消息消费者
@@ -46,6 +48,6 @@ public interface KafkaCustomer<M> extends Customer<M> {
 	 * @param acknowledgment
 	 *        {@link Acknowledgment}
 	 */
-	void onMessage(final M message, final Acknowledgment acknowledgment);
+	void onMessage(final M message, @Header(KafkaHeaders.ACKNOWLEDGMENT) final Acknowledgment acknowledgment);
 
 }

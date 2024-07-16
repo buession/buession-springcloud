@@ -25,6 +25,9 @@
 package com.buession.springcloud.stream.rabbitmq.core;
 
 import com.buession.springcloud.stream.core.Customer;
+import com.rabbitmq.client.Channel;
+import org.springframework.amqp.support.AmqpHeaders;
+import org.springframework.messaging.handler.annotation.Header;
 
 /**
  * RabbitMQ 消息消费者
@@ -36,5 +39,17 @@ import com.buession.springcloud.stream.core.Customer;
  * @since 3.0.0
  */
 public interface RabbitMqCustomer<M> extends Customer<M> {
+
+	/**
+	 * 消息消费
+	 *
+	 * @param message
+	 * 		消息
+	 * @param channel
+	 *        {@link Channel}
+	 * @param deliveryTag
+	 * 		消息唯一标记
+	 */
+	void onMessage(final M message, final Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) final long deliveryTag);
 
 }
