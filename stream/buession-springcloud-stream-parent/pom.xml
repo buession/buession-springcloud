@@ -55,22 +55,13 @@
 
 	<modules>
 		<module>../buession-springcloud-stream-core</module>
-		<module>../buession-springcloud-stream-file</module>
-		<module>../buession-springcloud-stream-hdfs</module>
-		<module>../buession-springcloud-stream-http</module>
-		<module>../buession-springcloud-stream-jdbc</module>
-		<module>../buession-springcloud-stream-jms</module>
 		<module>../buession-springcloud-stream-kafka</module>
-		<module>../buession-springcloud-stream-mongodb</module>
 		<module>../buession-springcloud-stream-rabbitmq</module>
 		<module>../buession-springcloud-stream-rocketmq</module>
-		<module>../buession-springcloud-stream-syslog</module>
-		<module>../buession-springcloud-stream-tcp</module>
-		<module>../buession-springcloud-stream-websocket</module>
 	</modules>
 
 	<properties>
-		<springframework.integration.version>5.3.10.RELEASE</springframework.integration.version>
+		<springframework.cloud.stream.version>3.2.10</springframework.cloud.stream.version>
 	</properties>
 
 	<dependencyManagement>
@@ -78,17 +69,22 @@
 			<dependency>
 				<groupId>org.xerial.snappy</groupId>
 				<artifactId>snappy-java</artifactId>
-				<version>1.1.9.1</version>
+				<version>1.1.10.5</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.luben</groupId>
 				<artifactId>zstd-jni</artifactId>
-				<version>1.5.4-2</version>
+				<version>1.5.6-4</version>
 			</dependency>
 			<dependency>
 				<groupId>org.lz4</groupId>
 				<artifactId>lz4-java</artifactId>
 				<version>1.8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jayway.jsonpath</groupId>
+				<artifactId>json-path</artifactId>
+				<version>2.9.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
