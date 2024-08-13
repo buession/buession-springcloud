@@ -64,15 +64,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-hystrix</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
 			<artifactId>buession-springcloud-loadbalancer</artifactId>
 			<version>${project.version}</version>
-			<scope>provided</scope>
-			<optional>true</optional>
 		</dependency>
 
 		<dependency>
@@ -102,12 +95,28 @@
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore-nio</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpasyncclient</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient</artifactId>
 		</dependency>
 
 		<dependency>

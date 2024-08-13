@@ -69,7 +69,6 @@
 		<module>../buession-springcloud-nacos-config-client</module>
 		<module>../buession-springcloud-nacos-discovery</module>
 		<module>../buession-springcloud-ribbon</module>
-		<module>../buession-springcloud-stream</module>
 		<module>../buession-springcloud-zipkin</module>
 		<module>../buession-springcloud-zuul</module>
 	</modules>
@@ -77,11 +76,10 @@
 	<properties>
 		<buession.version>3.0.0</buession.version>
 		<buession.springboot.version>3.0.0</buession.springboot.version>
-		<springcloud.base.version>2.2.9.RELEASE</springcloud.base.version>
-		<springcloud.config.version>2.2.8.RELEASE</springcloud.config.version>
+		<springcloud.base.version>3.1.8</springcloud.base.version>
+		<springcloud.config.version>3.1.9</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
-		<springframework.integration.version>5.3.10.RELEASE</springframework.integration.version>
-		<alibaba.cloud.nacos.version>2.2.9.RELEASE</alibaba.cloud.nacos.version>
+		<alibaba.cloud.nacos.version>2.2.10</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -102,34 +100,6 @@
 				<artifactId>buession-springboot-web</artifactId>
 				<version>${buession.springboot.version}</version>
 			</dependency>
-
-			<!-- springframework integration start -->
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-core</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-jms</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-jmx</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-xml</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.integration</groupId>
-				<artifactId>spring-integration-ip</artifactId>
-				<version>${springframework.integration.version}</version>
-			</dependency>
-			<!-- springframework integration end -->
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -187,7 +157,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
-				<version>3.0.13.RELEASE</version>
+				<version>3.2.10</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework.cloud</groupId>
@@ -195,11 +165,7 @@
 					</exclusion>
 					<exclusion>
 						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-starter-actuator</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-starter-validation</artifactId>
+						<artifactId>*</artifactId>
 					</exclusion>
 					<exclusion>
 						<groupId>javax.annotation</groupId>
@@ -222,7 +188,7 @@
 			<dependency>
 				<groupId>com.netflix.archaius</groupId>
 				<artifactId>archaius-core</artifactId>
-				<version>0.7.7</version>
+				<version>0.7.12</version>
 				<exclusions>
 					<exclusion>
 						<groupId>commons-logging</groupId>
@@ -239,6 +205,29 @@
 				<groupId>com.netflix.hystrix</groupId>
 				<artifactId>hystrix-core</artifactId>
 				<version>1.5.18</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.hdrhistogram</groupId>
+						<artifactId>HdrHistogram</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>com.netflix.hystrix</groupId>
+				<artifactId>hystrix-serialization</artifactId>
+				<version>1.5.18</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.hdrhistogram</groupId>
+						<artifactId>HdrHistogram</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>com.ecwid.consul</groupId>
+				<artifactId>consul-api</artifactId>
+				<version>1.4.5</version>
 			</dependency>
 
 			<dependency>

@@ -52,17 +52,16 @@
 	</issueManagement>
 
 	<properties>
-		<dubbo.version>3.1.11</dubbo.version>
+		<dubbo.version>3.2.14</dubbo.version>
+		<dubbo.extensions.version>3.2.0</dubbo.extensions.version>
 	</properties>
 
 	<dependencies>
-		<!--
 		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-common</artifactId>
-			<version>${project.version}</version>
+			<groupId>com.buession</groupId>
+			<artifactId>buession-core</artifactId>
+			<version>${buession.version}</version>
 		</dependency>
-		-->
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -73,32 +72,6 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>hessian-lite</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		--><!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-triple-servlet</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!-- metadata start -->
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-metadata-processor</artifactId>
-			<version>${dubbo.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.dubbo</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- metadata finish -->
 		<!-- rest start -->
 		<!--
 		<dependency>
@@ -106,15 +79,11 @@
 			<artifactId>dubbo-rest-servlet</artifactId>
 			<version>${dubbo.version}</version>
 		</dependency>
-		-->
-		<!--
 		<dependency>
 			<groupId>org.apache.dubbo</groupId>
 			<artifactId>dubbo-rest-spring</artifactId>
 			<version>${dubbo.version}</version>
 		</dependency>
-		-->
-		<!--
 		<dependency>
 			<groupId>org.apache.dubbo</groupId>
 			<artifactId>dubbo-rest-jaxrs</artifactId>
@@ -122,30 +91,7 @@
 		</dependency>
 		-->
 		<!-- rest end -->
-		<!-- security start -->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-security</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-security</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!-- security end -->
 		<!-- metrics start -->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-metrics-default</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
 		<!--
 		<dependency>
 			<groupId>org.apache.dubbo</groupId>
@@ -156,28 +102,7 @@
 		<!--
 		<dependency>
 			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-metrics-config-center</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-metrics-metadata</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
 			<artifactId>dubbo-metrics-netty</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-metrics-registry</artifactId>
 			<version>${dubbo.version}</version>
 		</dependency>
 		-->
@@ -189,6 +114,359 @@
 			<version>${dubbo.version}</version>
 		</dependency>
 		-->
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${dubbo.version}</version>
+		</dependency>
+
+		<!--
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>hessian-lite</artifactId>
+			<version>${dubbo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo</groupId>
+			<artifactId>dubbo-triple-servlet</artifactId>
+			<version>${dubbo.version}</version>
+		</dependency>
+		-->
+
+		<!-- serialization start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-avro</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.dubbo.extensions</groupId>
+					<artifactId>dubbo-serialization-test</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-fastjson</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-fst</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.dubbo</groupId>
+					<artifactId>dubbo-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.dubbo.extensions</groupId>
+					<artifactId>dubbo-serialization-test</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-fury</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-gson</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-jackson</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-kryo</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.dubbo.extensions</groupId>
+					<artifactId>dubbo-serialization-test</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-msgpack</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-native-hession</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-protobuf</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-serialization-protostuff</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.dubbo.extensions</groupId>
+					<artifactId>dubbo-serialization-test</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- serialization end -->
+
+		<!-- cluster start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cluster-broadcast-1</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cluster-loadbalance-peakewma</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cluster-polaris-dubbo2</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cluster-specify-address-common</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cluster-specify-address-dubbo2</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cluster-specify-address-dubbo3</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- cluster end -->
+
+		<!-- configcenter start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-configcenter-consul</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-configcenter-etcd</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- configcenter end -->
+
+		<!-- remoting start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-remoting-etcd3</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.annotation</groupId>
+					<artifactId>javax.annotation-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.google.android</groupId>
+					<artifactId>annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-remoting-grizzly</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-remoting-mina</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-remoting-p2p</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-remoting-quic</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-remoting-redis</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- remoting end -->
+
+		<!-- rpc start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-hessian</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-http</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-memcached</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-redis</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-rmi</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-rocketmq</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-native-thrift</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-rpc-webservice</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+			</exclusions>
+		</dependency>
+		<!-- rpc end -->
+
+		<!-- filter start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-filter-polaris-circuitbreaker-dubbo2</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-filter-polaris-ratelimit-dubbo2</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-filter-seata</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- filter end -->
+
+		<!-- gateway start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-gateway-common</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-gateway-consumer</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-gateway-provider</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- gateway end -->
+
+		<!-- registry start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-consul</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-dns</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-etcd3</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-nameservice</artifactId>
+			<version>${dubbo.extensions.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-polaris</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-redis</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-registry-sofa</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- registry end -->
+
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-kubernetes</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-xds</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-tag-subnets</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-cross-thread-extensions</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+
+		<!-- metadata report start -->
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-metadata-report-etcd</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.dubbo.extensions</groupId>
+			<artifactId>dubbo-metadata-report-consul</artifactId>
+			<version>${dubbo.extensions.version}</version>
+		</dependency>
+		<!-- metadata report end -->
+
 		<!-- spring boot start -->
 		<dependency>
 			<groupId>org.apache.dubbo</groupId>
@@ -208,145 +486,17 @@
 			<exclusions>
 				<exclusion>
 					<groupId>org.apache.dubbo</groupId>
-					<artifactId>dubbo-spring-boot-actuator-compatible</artifactId>
+					<artifactId>dubbo-metrics-default</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-nacos-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-observability-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-observability-spring-boot-autoconfigure</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-observability-spring-boot-starters</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-seata-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-sentinel-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-tracing-brave-zipkin-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-tracing-otel-otlp-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-tracing-otel-zipkin-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-zookeeper-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-zookeeper-curator5-spring-boot-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-interceptor</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-observability-autoconfigure</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-tracing-brave-zipkin-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-tracing-otel-otlp-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-tracing-otel-zipkin-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-observability-starter</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-observability-starters</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
-		<!--
-		<dependency>
-			<groupId>org.apache.dubbo</groupId>
-			<artifactId>dubbo-spring-boot-3-autoconfigure</artifactId>
-			<version>${dubbo.version}</version>
-		</dependency>
-		-->
 		<!-- spring boot end -->
-		
+
+		<dependency>
+			<groupId>com.alibaba.spring</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -364,6 +514,41 @@
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-memcache</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-mqtt</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-redis</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-smtp</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-socks</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-stomp</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-xml</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
 		</dependency>
 
 		<dependency>
@@ -374,7 +559,23 @@
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
-			<version>3.30.2-GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
 		<dependency>
