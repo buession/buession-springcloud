@@ -64,31 +64,6 @@
 		<springframework.cloud.stream.version>3.2.10</springframework.cloud.stream.version>
 	</properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.xerial.snappy</groupId>
-				<artifactId>snappy-java</artifactId>
-				<version>1.1.10.5</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.luben</groupId>
-				<artifactId>zstd-jni</artifactId>
-				<version>1.5.6-4</version>
-			</dependency>
-			<dependency>
-				<groupId>org.lz4</groupId>
-				<artifactId>lz4-java</artifactId>
-				<version>1.8.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.jayway.jsonpath</groupId>
-				<artifactId>json-path</artifactId>
-				<version>2.9.0</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<build>
 		<finalName>buession-springcloud-stream-parent</finalName>
 		<resources>
