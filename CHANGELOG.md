@@ -29,7 +29,6 @@
 
 ### ⭐ 新特性
 
-- 集成 dubbo(https://github.com/apache/dubbo/dubbo)
 - stream 新增支持手动确认消息方法
 
 
