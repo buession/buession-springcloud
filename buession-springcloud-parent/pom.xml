@@ -78,7 +78,7 @@
 		<springcloud.base.version>3.1.8</springcloud.base.version>
 		<springcloud.config.version>3.1.9</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
-		<alibaba.cloud.nacos.version>2.2.10</alibaba.cloud.nacos.version>
+		<alibaba.cloud.nacos.version>2021.1</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>

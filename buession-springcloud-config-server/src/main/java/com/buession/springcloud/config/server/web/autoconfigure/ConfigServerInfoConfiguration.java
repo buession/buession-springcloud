@@ -39,7 +39,7 @@ public class ConfigServerInfoConfiguration {
 
 	@AutoConfiguration
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-	static class ServletConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
+	static class Servlet extends ConfigServerInfoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean
@@ -51,7 +51,7 @@ public class ConfigServerInfoConfiguration {
 
 	@AutoConfiguration
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-	static class ReactiveConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
+	static class Reactive extends ConfigServerInfoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean

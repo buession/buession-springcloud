@@ -87,6 +87,9 @@ public abstract class AbstractRabbitMqCustomer<M, S extends Sink> extends Abstra
 	 * 		消息唯一标记
 	 *
 	 * @return 执行结果
+	 *
+	 * @throws IOException
+	 * 		I/O 异常
 	 */
 	protected Status onSuccess(final M message, final Channel channel, final long deliveryTag) throws IOException {
 		if(channel != null){
