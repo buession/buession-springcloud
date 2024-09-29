@@ -27,7 +27,6 @@ package com.buession.springcloud.stream.rabbitmq.core;
 import com.buession.core.utils.Assert;
 import com.buession.lang.Status;
 import com.buession.springcloud.stream.core.AbstractCustomer;
-import com.buession.springcloud.stream.core.Sink;
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Header;
@@ -39,24 +38,11 @@ import java.io.IOException;
  *
  * @param <M>
  * 		消息类型
- * @param <S>
- * 		消息消费 {@link Sink}
  *
  * @author Yong.Teng
  * @since 3.0.0
  */
-public abstract class AbstractRabbitMqCustomer<M, S extends Sink> extends AbstractCustomer<M, S>
-		implements RabbitMqCustomer<M> {
-
-	/**
-	 * 构造函数
-	 *
-	 * @param sink
-	 * 		消息消费 {@link Sink}
-	 */
-	public AbstractRabbitMqCustomer(final S sink) {
-		super(sink);
-	}
+public abstract class AbstractRabbitMqCustomer<M> extends AbstractCustomer<M> implements RabbitMqCustomer<M> {
 
 	@Override
 	public void onMessage(final M message, final Channel channel,

@@ -26,4 +26,4 @@
  * @author Yong.Teng
  * @since 2.3.0
  */
-package com.buession.springcloud.stream.core;
+package com.buession.springcloud.stream.core.autoconfigure;

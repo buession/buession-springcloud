@@ -21,10 +21,42 @@
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
- */package com.buession.springcloud.stream.core;/**
- * 
- *
+ */
+package com.buession.springcloud.stream.core;
+
+import com.buession.core.utils.Assert;
+import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.lang.Nullable;
+import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.util.MimeType;
+
+/**
  * @author Yong.Teng
  * @since 3.0.0
- */public class StreamBridgeMessageTemplate {
+ */
+public class StreamBridgeMessageTemplate {
+
+	private final StreamBridge streamBridge;
+
+	public StreamBridgeMessageTemplate(final StreamBridge streamBridge) {
+		Assert.isNull(streamBridge, "StreamBridge cannot be null.");
+		this.streamBridge = streamBridge;
+	}
+
+	public <M> boolean send(String bindingName, M data) {
+		return streamBridge.send(bindingName, MessageBuilder.withPayload(data).build());
+	}
+
+	public <M> boolean send(String bindingName, M data, MimeType contentType) {
+		return streamBridge.send(bindingName, MessageBuilder.withPayload(data).build(), contentType);
+	}
+
+	public <M> boolean send(String bindingName, @Nullable String binderName, M data) {
+		return streamBridge.send(bindingName, binderName, MessageBuilder.withPayload(data).build());
+	}
+
+	public <M> boolean send(String bindingName, @Nullable String binderName, M data, MimeType contentType) {
+		return streamBridge.send(bindingName, binderName, MessageBuilder.withPayload(data).build(), contentType);
+	}
+
 }

@@ -21,10 +21,31 @@
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
- */package com.buession.springcloud.stream.core;/**
- * 
+ */
+package com.buession.springcloud.stream.core;
+
+import org.springframework.lang.NonNull;
+
+/**
+ * 消息消费者
+ *
+ * @param <M>
+ * 		消息类型
  *
  * @author Yong.Teng
  * @since 3.0.0
- */public class AbstractMessageConsumer {
+ */
+public abstract class AbstractMessageConsumer<M> implements MessageConsumer<M> {
+
+	private final Customer<M> customer;
+
+	public AbstractMessageConsumer(@NonNull final Customer<M> customer) {
+		this.customer = customer;
+	}
+
+	@Override
+	public void accept(final M message) {
+		customer.onMessage(message);
+	}
+
 }

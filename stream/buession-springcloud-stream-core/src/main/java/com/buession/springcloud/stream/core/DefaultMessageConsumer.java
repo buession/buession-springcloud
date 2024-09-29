@@ -21,10 +21,19 @@
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
- */package com.buession.springcloud.stream.core;/**
- * 
- *
+ */
+package com.buession.springcloud.stream.core;
+
+import org.springframework.lang.NonNull;
+
+/**
  * @author Yong.Teng
  * @since 3.0.0
- */public class DefaultMessageConsumer {
+ */
+public class DefaultMessageConsumer<M> extends AbstractMessageConsumer<M> {
+
+	public DefaultMessageConsumer(@NonNull final Customer<M> customer) {
+		super(customer);
+	}
+
 }

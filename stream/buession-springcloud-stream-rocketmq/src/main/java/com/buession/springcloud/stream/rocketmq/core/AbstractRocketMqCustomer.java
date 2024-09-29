@@ -25,30 +25,16 @@
 package com.buession.springcloud.stream.rocketmq.core;
 
 import com.buession.springcloud.stream.core.AbstractCustomer;
-import com.buession.springcloud.stream.core.Sink;
 
 /**
  * RocketMQ 消息消费者抽象类
  *
  * @param <M>
  * 		消息类型
- * @param <S>
- * 		消息消费 {@link Sink}
  *
  * @author Yong.Teng
  * @since 3.0.0
  */
-public abstract class AbstractRocketMqCustomer<M, S extends Sink> extends AbstractCustomer<M, S>
-		implements RocketMqCustomer<M> {
-
-	/**
-	 * 构造函数
-	 *
-	 * @param sink
-	 * 		消息消费 {@link Sink}
-	 */
-	public AbstractRocketMqCustomer(final S sink) {
-		super(sink);
-	}
+public abstract class AbstractRocketMqCustomer<M> extends AbstractCustomer<M> implements RocketMqCustomer<M> {
 
 }

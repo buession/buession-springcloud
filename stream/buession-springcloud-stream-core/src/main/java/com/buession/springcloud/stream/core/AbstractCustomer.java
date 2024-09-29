@@ -34,31 +34,13 @@ import org.slf4j.LoggerFactory;
  *
  * @param <M>
  * 		消息类型
- * @param <S>
- * 		消息消费 {@link Sink}
  *
  * @author Yong.Teng
  * @since 2.3.0
  */
-public abstract class AbstractCustomer<M, S extends Sink> implements Customer<M> {
-
-	/**
-	 * 消息消费 {@link Sink}
-	 */
-	protected S sink;
+public abstract class AbstractCustomer<M> implements Customer<M> {
 
 	protected Logger logger = LoggerFactory.getLogger(getClass());
-
-	/**
-	 * 构造函数
-	 *
-	 * @param sink
-	 * 		消息消费 {@link Sink}
-	 */
-	public AbstractCustomer(final S sink) {
-		Assert.isNull(sink, "Sink cloud not be null.");
-		this.sink = sink;
-	}
 
 	@Override
 	public void onMessage(final M message) {

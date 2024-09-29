@@ -21,10 +21,29 @@
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
- */package com.buession.springcloud.stream.core.autoconfigure;/**
- * 
- *
+ */
+package com.buession.springcloud.stream.core.autoconfigure;
+
+import com.buession.springcloud.stream.core.StreamBridgeMessageTemplate;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.cloud.stream.function.FunctionConfiguration;
+import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.context.annotation.Bean;
+
+/**
  * @author Yong.Teng
  * @since 3.0.0
- */public class StreamBridgeConfiguration {
+ */
+@AutoConfiguration
+@AutoConfigureAfter({FunctionConfiguration.class})
+public class StreamBridgeConfiguration {
+
+	@Bean
+	@ConditionalOnBean(StreamBridge.class)
+	public StreamBridgeMessageTemplate streamBridgeMessageTemplate(StreamBridge streamBridge) {
+		return new StreamBridgeMessageTemplate(streamBridge);
+	}
+
 }

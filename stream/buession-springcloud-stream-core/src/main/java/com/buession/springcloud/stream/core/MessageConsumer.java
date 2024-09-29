@@ -21,10 +21,21 @@
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
  * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
- */package com.buession.springcloud.stream.core;/**
- * 
+ */
+package com.buession.springcloud.stream.core;
+
+import java.util.function.Consumer;
+
+/**
+ * 消息消费者
+ *
+ * @param <M>
+ * 		消息类型
  *
  * @author Yong.Teng
  * @since 3.0.0
- */public interface MessageConsumer {
+ */
+@FunctionalInterface
+public interface MessageConsumer<M> extends Consumer<M> {
+
 }
