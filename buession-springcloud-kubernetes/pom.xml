@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-kubernetes</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<springframework.cloud.kubernetes.version>1.1.10.RELEASE</springframework.cloud.kubernetes.version>
+		<springframework.cloud.kubernetes.version>2.1.9</springframework.cloud.kubernetes.version>
 	</properties>
 
 	<dependencies>
@@ -61,43 +61,46 @@
 			<artifactId>buession-springcloud-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-ribbon</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-kubernetes</artifactId>
+			<artifactId>spring-cloud-starter-kubernetes-client</artifactId>
 			<version>${springframework.cloud.kubernetes.version}</version>
 			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter</artifactId>
-				</exclusion>
 				<exclusion>
 					<groupId>javax.annotation</groupId>
 					<artifactId>javax.annotation-api</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>javax.validation</groupId>
-					<artifactId>validation-api</artifactId>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>*</artifactId>
 				</exclusion>
 				<exclusion>
-					<groupId>org.glassfish</groupId>
-					<artifactId>javax.el</artifactId>
+					<groupId>io.swagger</groupId>
+					<artifactId>swagger-annotations</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+			<version>${springframework.boot.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-kubernetes-ribbon</artifactId>
-			<version>${springframework.cloud.kubernetes.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-actuator</artifactId>
+			<version>${springframework.boot.version}</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter</artifactId>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -106,32 +109,52 @@
 			<groupId>jakarta.annotation</groupId>
 			<artifactId>jakarta.annotation-api</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>jakarta.validation</groupId>
-			<artifactId>jakarta.validation-api</artifactId>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.findbugs</groupId>
+			<artifactId>jsr305</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>jakarta.el</artifactId>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>kotlin-stdlib-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>kotlin-stdlib-jdk8</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-yaml</artifactId>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-jaxb-annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-kotlin</artifactId>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk18on</artifactId>
 		</dependency>
 
 		<dependency>
@@ -180,8 +203,8 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

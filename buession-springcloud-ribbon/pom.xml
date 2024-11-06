@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-ribbon</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -64,12 +64,12 @@
 			<version>${springcloud.netflix.version}</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
 					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>*</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>javax.inject</groupId>
@@ -95,6 +95,15 @@
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-apache-client4</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
 		</dependency>
 
 		<dependency>
@@ -140,6 +149,23 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcpkix-jdk18on</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk18on</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
 		<dependency>
@@ -188,8 +214,8 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

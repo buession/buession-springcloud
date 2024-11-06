@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<name>Buession Springcloud Stream Parent</name>
+	<name>Buession SpringCloud Stream Parent</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<groupId>com.buession.springcloud.stream</groupId>
 	<artifactId>buession-springcloud-stream-parent</artifactId>
 	<url>https://springcloud.buession.com/</url>
 	<description>Buession SpringCloud Framework Stream Parent</description>
-	<version>2.3.3</version>
+	<version>3.0.0</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -55,43 +55,14 @@
 
 	<modules>
 		<module>../buession-springcloud-stream-core</module>
-		<module>../buession-springcloud-stream-file</module>
-		<module>../buession-springcloud-stream-hdfs</module>
-		<module>../buession-springcloud-stream-http</module>
-		<module>../buession-springcloud-stream-jdbc</module>
-		<module>../buession-springcloud-stream-jms</module>
 		<module>../buession-springcloud-stream-kafka</module>
-		<module>../buession-springcloud-stream-mongodb</module>
 		<module>../buession-springcloud-stream-rabbitmq</module>
 		<module>../buession-springcloud-stream-rocketmq</module>
-		<module>../buession-springcloud-stream-syslog</module>
-		<module>../buession-springcloud-stream-tcp</module>
-		<module>../buession-springcloud-stream-websocket</module>
 	</modules>
 
 	<properties>
-		<springframework.integration.version>5.3.10.RELEASE</springframework.integration.version>
+		<springframework.cloud.stream.version>3.2.10</springframework.cloud.stream.version>
 	</properties>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.xerial.snappy</groupId>
-				<artifactId>snappy-java</artifactId>
-				<version>1.1.9.1</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.luben</groupId>
-				<artifactId>zstd-jni</artifactId>
-				<version>1.5.4-2</version>
-			</dependency>
-			<dependency>
-				<groupId>org.lz4</groupId>
-				<artifactId>lz4-java</artifactId>
-				<version>1.8.0</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<finalName>buession-springcloud-stream-parent</finalName>
@@ -145,20 +116,9 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>sonatype-nexus-snapshots</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
-			<id>sonatype-nexus-staging</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
 </project>

@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2022 Buession.com Inc.														       |
+ * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.feign.autoconfigure;
@@ -27,40 +27,40 @@ package com.buession.springcloud.feign.autoconfigure;
 import com.buession.springcloud.feign.interceptor.reactive.ReactiveClientHeadersRequestInterceptor;
 import com.buession.springcloud.feign.interceptor.servlet.ServletClientHeadersRequestInterceptor;
 import feign.RequestInterceptor;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Yong.Teng
  */
-@Configuration(proxyBeanMethods = false)
-@ConditionalOnProperty(prefix = "spring.cloud.feign", name = "apply-client-request-headers.enabled", havingValue = "true", matchIfMissing = true)
+@AutoConfiguration
 @EnableConfigurationProperties(FeignProperties.class)
+@ConditionalOnProperty(prefix = "spring.cloud.feign", name = "apply-client-request-headers.enabled", havingValue = "true", matchIfMissing = true)
 @ConditionalOnWebApplication
 public class FeignInterceptorConfiguration {
 
 	protected FeignProperties feignProperties;
 
-	public FeignInterceptorConfiguration(FeignProperties feignProperties){
+	public FeignInterceptorConfiguration(FeignProperties feignProperties) {
 		this.feignProperties = feignProperties;
 	}
 
-	@Configuration(proxyBeanMethods = false)
+	@AutoConfiguration
 	@EnableConfigurationProperties(FeignProperties.class)
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 	static class ServletFeignInterceptorConfiguration extends FeignInterceptorConfiguration {
 
-		public ServletFeignInterceptorConfiguration(FeignProperties feignProperties){
+		public ServletFeignInterceptorConfiguration(FeignProperties feignProperties) {
 			super(feignProperties);
 		}
 
 		@Bean
 		@ConditionalOnMissingBean
-		public RequestInterceptor servletClientHeadersRequestInterceptor(){
+		public RequestInterceptor servletClientHeadersRequestInterceptor() {
 			return new ServletClientHeadersRequestInterceptor(
 					feignProperties.getApplyClientRequestHeaders().getAllowedHeaderNames(),
 					feignProperties.getApplyClientRequestHeaders().getIgnoreHeaderNames());
@@ -68,18 +68,18 @@ public class FeignInterceptorConfiguration {
 
 	}
 
-	@Configuration(proxyBeanMethods = false)
+	@AutoConfiguration
 	@EnableConfigurationProperties(FeignProperties.class)
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 	static class ReactiveFeignInterceptorConfiguration extends FeignInterceptorConfiguration {
 
-		public ReactiveFeignInterceptorConfiguration(FeignProperties feignProperties){
+		public ReactiveFeignInterceptorConfiguration(FeignProperties feignProperties) {
 			super(feignProperties);
 		}
 
 		@Bean
 		@ConditionalOnMissingBean
-		public RequestInterceptor reactiveClientHeadersRequestInterceptor(){
+		public RequestInterceptor reactiveClientHeadersRequestInterceptor() {
 			return new ReactiveClientHeadersRequestInterceptor(
 					feignProperties.getApplyClientRequestHeaders().getAllowedHeaderNames(),
 					feignProperties.getApplyClientRequestHeaders().getIgnoreHeaderNames());

@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-config-server</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -69,6 +69,10 @@
 			<artifactId>buession-springboot-web</artifactId>
 			<exclusions>
 				<exclusion>
+					<groupId>com.buession</groupId>
+					<artifactId>buession-net</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>org.owasp.antisamy</groupId>
 					<artifactId>antisamy</artifactId>
 				</exclusion>
@@ -88,12 +92,12 @@
 			<version>${springcloud.config.version}</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
 					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -101,6 +105,37 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-crypto</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-rsa</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.bouncycastle</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -121,6 +156,10 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -164,8 +203,8 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

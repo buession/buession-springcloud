@@ -1,6 +1,44 @@
  Buession SpringCloud Changelog
 ===========================
 
+## [3.0.0](https://github.com/buession/buession-springcloud/releases/tag/v3.0.0) (2024-11-07)
+
+### 🔨依赖升级
+
+- [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v3.0.0)
+- [spring-integration](https://github.com/spring-projects/spring-integration) 版本升级至 5.5.20
+- [spring-cloud-commons](https://projects.spring.io/spring-cloud/spring-cloud-commons/) 版本升级至 3.1.8
+- [spring-cloud-context](https://projects.spring.io/spring-cloud/spring-cloud-context/) 版本升级至 3.1.8
+- [spring-cloud-bus](https://projects.spring.io/spring-cloud/spring-cloud-bus/) 版本升级至 3.1.3
+- [spring-cloud-stream](https://projects.spring.io/spring-cloud/spring-cloud-stream/) 版本升级至 3.2.10
+- [spring-cloud-config-client](https://projects.spring.io/spring-cloud/spring-cloud-config-client/) 版本升级至 3.1.9
+- [spring-cloud-config-server](https://projects.spring.io/spring-cloud/spring-cloud-config-server/) 版本升级至 3.1.9
+- [spring-cloud-starter-consul-discovery](https://projects.spring.io/spring-cloud/spring-cloud-starter-consul-discovery/) 版本升级至 3.1.5
+- [spring-cloud-starter-openfeign](https://projects.spring.io/spring-cloud/spring-cloud-starter-openfeign/) 版本升级至 3.1.9
+- [spring-cloud-starter-gateway](https://projects.spring.io/spring-cloud/spring-cloud-starter-gateway/) 版本升级至 3.1.9
+- [spring-cloud-starter-loadbalancer](https://projects.spring.io/spring-cloud/spring-cloud-starter-loadbalancer/) 版本升级至 3.1.8
+- [spring-cloud-starter-alibaba-nacos-config](https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-config) 版本升级至 2.2.10.RELEASE
+- [spring-cloud-starter-alibaba-nacos-discovery](https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-discovery) 版本升级至 2.2.10.RELEASE
+- io.projectreactor.netty:reactor-netty(https://github.com/reactor/reactor-netty) 版本升级至 1.1.21
+- [openfeign] 版本升级至 13.3
+- [archaius-core](https://github.com/Netflix/archaius) 版本升级至 0.7.12
+- [objenesis](http://objenesis.org) 版本升级至 3.0
+- [snappy-java](https://github.com/xerial/snappy-java) 版本升级至 1.1.10.5
+- [apache hadoop] 版本升级至 3.4.0
+
+
+### ⭐ 新特性
+
+- stream 新增支持手动确认消息方法
+
+
+### 🔔 变化
+
+- 删除 buession-springcloud-stream、buession-springcloud-stream-file、buession-springcloud-stream-hdfs、buession-springcloud-stream-http、buession-springcloud-stream-jdbc、buession-springcloud-stream-jms、buession-springcloud-stream-mongodb、buession-springcloud-stream-syslog、buession-springcloud-stream-tcp、buession-springcloud-stream-websocket
+
+
+---
+
 
 ## [2.3.3](https://github.com/buession/buession-springcloud/releases/tag/v2.3.3) (2024-05-06)
 

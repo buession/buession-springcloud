@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-nacos-discovery</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -64,15 +64,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-hystrix</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
 			<artifactId>buession-springcloud-loadbalancer</artifactId>
 			<version>${project.version}</version>
-			<scope>provided</scope>
-			<optional>true</optional>
 		</dependency>
 
 		<dependency>
@@ -85,6 +78,10 @@
 					<artifactId>spring-cloud-starter</artifactId>
 				</exclusion>
 				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-actuator</artifactId>
+				</exclusion>
+				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
@@ -92,13 +89,34 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpasyncclient</artifactId>
+			<groupId>com.alibaba.spring</groupId>
+			<artifactId>spring-context-support</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore-nio</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpasyncclient</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient</artifactId>
 		</dependency>
 
 		<dependency>
@@ -147,8 +165,8 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

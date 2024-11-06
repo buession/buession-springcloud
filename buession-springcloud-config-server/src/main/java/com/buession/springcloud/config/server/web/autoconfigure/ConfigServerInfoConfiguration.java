@@ -19,43 +19,43 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2022 Buession.com Inc.														       |
+ * | Copyright @ 2013-2024 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.config.server.web.autoconfigure;
 
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Yong.Teng
  */
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 @ConditionalOnProperty(prefix = "spring.cloud.config", name = "send-info", havingValue = "true", matchIfMissing = true)
 public class ConfigServerInfoConfiguration {
 
-	@Configuration(proxyBeanMethods = false)
+	@AutoConfiguration
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
-	static class ServletConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
+	static class Servlet extends ConfigServerInfoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean
-		public com.buession.springcloud.config.server.web.servlet.ConfigServerInfoFilter configServerInfoFilter(){
+		public com.buession.springcloud.config.server.web.servlet.ConfigServerInfoFilter configServerInfoFilter() {
 			return new com.buession.springcloud.config.server.web.servlet.ConfigServerInfoFilter();
 		}
 
 	}
 
-	@Configuration(proxyBeanMethods = false)
+	@AutoConfiguration
 	@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
-	static class ReactiveConfigServerInfoConfiguration extends ConfigServerInfoConfiguration {
+	static class Reactive extends ConfigServerInfoConfiguration {
 
 		@Bean
 		@ConditionalOnMissingBean
-		public com.buession.springcloud.config.server.web.reactive.ConfigServerInfoFilter configServerInfoFilter(){
+		public com.buession.springcloud.config.server.web.reactive.ConfigServerInfoFilter configServerInfoFilter() {
 			return new com.buession.springcloud.config.server.web.reactive.ConfigServerInfoFilter();
 		}
 

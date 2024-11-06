@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-metrics</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -52,18 +52,6 @@
 	</issueManagement>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.buession.springcloud</groupId>
-			<artifactId>buession-springcloud-common</artifactId>
-			<version>${project.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.httpcomponents</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
 		<!-- dropwizard metrics start -->
 		<dependency>
 			<groupId>io.dropwizard.metrics</groupId>
@@ -100,8 +88,12 @@
 		<!-- dropwizard metrics end -->
 
 		<dependency>
-			<groupId>org.reactivestreams</groupId>
-			<artifactId>reactive-streams</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
 		<dependency>
@@ -150,8 +142,8 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

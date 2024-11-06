@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>2.3.3</version>
+		<version>3.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-zuul</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -74,12 +74,12 @@
 			<version>2.2.10.RELEASE</version>
 			<exclusions>
 				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
 					<artifactId>spring-cloud-starter</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -140,8 +140,8 @@
 				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

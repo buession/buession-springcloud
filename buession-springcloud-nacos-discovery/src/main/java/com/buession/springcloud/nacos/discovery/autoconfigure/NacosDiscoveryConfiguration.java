@@ -30,6 +30,8 @@ import com.alibaba.cloud.nacos.NacosServiceManager;
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryAutoConfiguration;
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryClientConfiguration;
 import com.alibaba.cloud.nacos.discovery.NacosWatch;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -37,13 +39,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.client.ConditionalOnDiscoveryEnabled;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 /**
  * @author Yong.Teng
  * @since 2.2.0
  */
-@Configuration(proxyBeanMethods = false)
+@AutoConfiguration
 @ConditionalOnDiscoveryEnabled
 @ConditionalOnNacosDiscoveryEnabled
 @AutoConfigureBefore({NacosDiscoveryClientConfiguration.class})
@@ -59,6 +61,8 @@ public class NacosDiscoveryConfiguration {
 	 *        {@link NacosServiceManager} 实例
 	 * @param nacosDiscoveryProperties
 	 *        {@link NacosDiscoveryProperties} 实例
+	 * @param taskScheduler
+	 *        {@link ThreadPoolTaskScheduler} 实例
 	 *
 	 * @return {@link NacosWatch}
 	 */
@@ -67,11 +71,12 @@ public class NacosDiscoveryConfiguration {
 	@ConditionalOnProperty(value = "spring.cloud.nacos.discovery.watch.enabled", matchIfMissing = true)
 	@ConditionalOnClass(name = {"io.undertow.Undertow"})
 	public NacosWatch nacosWatch(NacosServiceManager nacosServiceManager,
-								 NacosDiscoveryProperties nacosDiscoveryProperties){
-		return new NacosWatch(nacosServiceManager, nacosDiscoveryProperties) {
+								 NacosDiscoveryProperties nacosDiscoveryProperties,
+								 ObjectProvider<ThreadPoolTaskScheduler> taskScheduler) {
+		return new NacosWatch(nacosServiceManager, nacosDiscoveryProperties, taskScheduler) {
 
 			@Override
-			public int getPhase(){
+			public int getPhase() {
 				return Integer.MAX_VALUE;
 			}
 
