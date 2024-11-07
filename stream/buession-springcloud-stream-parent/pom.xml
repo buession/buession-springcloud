@@ -7,13 +7,13 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../../buession-springcloud-parent</relativePath>
-		<version>3.0.0</version>
+		<version>3.0.1</version>
 	</parent>
 	<groupId>com.buession.springcloud.stream</groupId>
 	<artifactId>buession-springcloud-stream-parent</artifactId>
 	<url>https://springcloud.buession.com/</url>
 	<description>Buession SpringCloud Framework Stream Parent</description>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -75,33 +75,6 @@
 				</includes>
 			</resource>
 		</resources>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-checkstyle-plugin</artifactId>
-					<version>3.1.2</version>
-					<configuration>
-						<configLocation>${project.basedir}/../../checkstyle.xml</configLocation>
-						<encoding>${project.build.encoding}</encoding>
-					</configuration>
-					<executions>
-						<execution>
-							<id>checkstyle</id>
-							<phase>validate</phase>
-							<goals>
-								<goal>check</goal>
-							</goals>
-							<configuration>
-								<skip>false</skip>
-								<failOnViolation>true</failOnViolation>
-								<includeTestSourceDirectory>true</includeTestSourceDirectory>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
