@@ -7,13 +7,13 @@
 		<groupId>com.buession</groupId>
 		<artifactId>parent</artifactId>
 		<relativePath/>
-		<version>3.0.0</version>
+		<version>3.0.1</version>
 	</parent>
 	<groupId>com.buession.springcloud</groupId>
 	<artifactId>buession-springcloud-parent</artifactId>
 	<url>https://springcloud.buession.com/</url>
 	<description>Buession SpringCloud Framework Parent</description>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<packaging>pom</packaging>
 
 	<organization>
@@ -73,8 +73,8 @@
 	</modules>
 
 	<properties>
-		<buession.version>3.0.0</buession.version>
-		<buession.springboot.version>3.0.0</buession.springboot.version>
+		<buession.version>3.0.1</buession.version>
+		<buession.springboot.version>3.0.1</buession.springboot.version>
 		<springcloud.base.version>3.1.8</springcloud.base.version>
 		<springcloud.config.version>3.1.9</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
