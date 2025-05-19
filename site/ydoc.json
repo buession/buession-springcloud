@@ -1,0 +1,13 @@
+{
+  "title": "Buession SpringCloud",
+  "keywords": "buession java springcloud spring-cloud cloud",
+  "description": "基于 Spring Cloud 2 的扩展",
+  "author": "buession",
+  "theme": "demo",
+  "root": "src",
+  "pluginsConfig": {
+    "import-asset": {
+      "js": ["/js/stat.js"]
+    }
+  }
+}
