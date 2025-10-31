@@ -6,6 +6,12 @@
 ### 🔨依赖升级
 
 - [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v4.0.0)
+- [openfeign](https://github.com/OpenFeign/feign) 版本升级至 13.6
+- io.projectreactor.netty:reactor-netty(https://github.com/reactor/reactor-netty) 版本升级至 1.2.11
+- [spring-cloud-starter-loadbalancer](https://projects.spring.io/spring-cloud/spring-cloud-starter-loadbalancer/) 版本升级至 3.1.9
+- [com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config](https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-config) 版本升级至 2025.0.0.0
+- [com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery](https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-discovery) 版本升级至 2025.0.0.0
+- [com.alibaba.cloud:spring-cloud-starter-stream-rocketmq](https://github.com/alibaba/spring-cloud-alibaba/spring-cloud-alibaba-starters/spring-cloud-starter-stream-rocketmq) 版本升级至 2025.0.0.0
 
 
 ---

@@ -78,7 +78,7 @@
 		<springcloud.base.version>3.1.8</springcloud.base.version>
 		<springcloud.config.version>3.1.9</springcloud.config.version>
 		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
-		<alibaba.cloud.nacos.version>2021.1</alibaba.cloud.nacos.version>
+		<alibaba.cloud.nacos.version>2025.0.0.0</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -187,18 +187,6 @@
 						<artifactId>HdrHistogram</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>
-
-			<dependency>
-				<groupId>com.ecwid.consul</groupId>
-				<artifactId>consul-api</artifactId>
-				<version>1.4.5</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.jcraft</groupId>
-				<artifactId>jsch</artifactId>
-				<version>0.1.55</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
