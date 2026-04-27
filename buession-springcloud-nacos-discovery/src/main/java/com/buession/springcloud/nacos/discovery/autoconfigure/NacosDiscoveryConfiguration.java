@@ -19,7 +19,7 @@
  * +-------------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										       |
  * | Author: Yong.Teng <webmaster@buession.com> 													       |
- * | Copyright @ 2013-2022 Buession.com Inc.														       |
+ * | Copyright @ 2013-2025 Buession.com Inc.														       |
  * +-------------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.nacos.discovery.autoconfigure;
@@ -30,27 +30,46 @@ import com.alibaba.cloud.nacos.NacosServiceManager;
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryAutoConfiguration;
 import com.alibaba.cloud.nacos.discovery.NacosDiscoveryClientConfiguration;
 import com.alibaba.cloud.nacos.discovery.NacosWatch;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.ConditionalOnDiscoveryEnabled;
 import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 /**
  * @author Yong.Teng
  * @since 2.2.0
  */
 @AutoConfiguration
+@EnableConfigurationProperties(NacosDiscoveryProperties.class)
 @ConditionalOnDiscoveryEnabled
 @ConditionalOnNacosDiscoveryEnabled
 @AutoConfigureBefore({NacosDiscoveryClientConfiguration.class})
 @AutoConfigureAfter({NacosDiscoveryAutoConfiguration.class})
 public class NacosDiscoveryConfiguration {
+
+	/**
+	 * {@link NacosDiscoveryProperties} 实例
+	 *
+	 * @since 4.0.0
+	 */
+	private final NacosDiscoveryProperties nacosDiscoveryProperties;
+
+	/**
+	 * 构造函数
+	 *
+	 * @param nacosDiscoveryProperties
+	 *        {@link NacosDiscoveryProperties} 实例
+	 *
+	 * @since 4.0.0
+	 */
+	public NacosDiscoveryConfiguration(NacosDiscoveryProperties nacosDiscoveryProperties) {
+		this.nacosDiscoveryProperties = nacosDiscoveryProperties;
+	}
 
 	/**
 	 * 解决在 Undertow 容器下停止时，报：
@@ -59,21 +78,17 @@ public class NacosDiscoveryConfiguration {
 	 *
 	 * @param nacosServiceManager
 	 *        {@link NacosServiceManager} 实例
-	 * @param nacosDiscoveryProperties
-	 *        {@link NacosDiscoveryProperties} 实例
-	 * @param taskScheduler
-	 *        {@link ThreadPoolTaskScheduler} 实例
 	 *
 	 * @return {@link NacosWatch}
+	 *
+	 * @since 4.0.0
 	 */
 	@Bean
 	@ConditionalOnMissingBean
 	@ConditionalOnProperty(value = "spring.cloud.nacos.discovery.watch.enabled", matchIfMissing = true)
 	@ConditionalOnClass(name = {"io.undertow.Undertow"})
-	public NacosWatch nacosWatch(NacosServiceManager nacosServiceManager,
-								 NacosDiscoveryProperties nacosDiscoveryProperties,
-								 ObjectProvider<ThreadPoolTaskScheduler> taskScheduler) {
-		return new NacosWatch(nacosServiceManager, nacosDiscoveryProperties, taskScheduler) {
+	public NacosWatch nacosWatch(NacosServiceManager nacosServiceManager) {
+		return new NacosWatch(nacosServiceManager, nacosDiscoveryProperties) {
 
 			@Override
 			public int getPhase() {

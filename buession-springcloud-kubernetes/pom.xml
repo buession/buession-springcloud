@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<springframework.cloud.kubernetes.version>2.1.9</springframework.cloud.kubernetes.version>
+		<springframework.cloud.kubernetes.version>3.3.0</springframework.cloud.kubernetes.version>
 	</properties>
 
 	<dependencies>
@@ -113,10 +113,6 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<name>Buession Springcloud Stream RocketMQ</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -83,7 +83,7 @@
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
-			<version>2025.0.0.0</version>
+			<version>2025.1.0.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
@@ -211,6 +211,10 @@
 				</exclusion>
 				<exclusion>
 					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-http3</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
 					<artifactId>netty-codec-memcache</artifactId>
 				</exclusion>
 				<exclusion>
@@ -228,6 +232,18 @@
 				<exclusion>
 					<groupId>io.netty</groupId>
 					<artifactId>netty-codec-stomp</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-sctp</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-transport-rxtx</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-transport-udt</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>

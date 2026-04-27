@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-client</artifactId>
-			<version>${springcloud.config.version}</version>
+			<version>${springcloud.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>

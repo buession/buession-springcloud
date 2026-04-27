@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<name>Buession Springcloud Parent</name>
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -61,23 +61,18 @@
 		<module>../buession-springcloud-consul</module>
 		<module>../buession-springcloud-feign</module>
 		<module>../buession-springcloud-gateway</module>
-		<module>../buession-springcloud-hystrix</module>
 		<module>../buession-springcloud-kubernetes</module>
 		<module>../buession-springcloud-loadbalancer</module>
 		<module>../buession-springcloud-metrics</module>
 		<module>../buession-springcloud-nacos-config-client</module>
 		<module>../buession-springcloud-nacos-discovery</module>
-		<module>../buession-springcloud-ribbon</module>
-		<module>../buession-springcloud-zipkin</module>
-		<module>../buession-springcloud-zuul</module>
+		<module>../buession-springcloud-sleuth</module>
 	</modules>
 
 	<properties>
 		<buession.version>4.0.0</buession.version>
 		<buession.springboot.version>4.0.0</buession.springboot.version>
-		<springcloud.base.version>3.1.8</springcloud.base.version>
-		<springcloud.config.version>3.1.9</springcloud.config.version>
-		<springcloud.netflix.version>2.2.10.RELEASE</springcloud.netflix.version>
+		<springcloud.version>4.3.0</springcloud.version>
 		<alibaba.cloud.nacos.version>2025.0.0.0</alibaba.cloud.nacos.version>
 	</properties>
 
@@ -102,23 +97,8 @@
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-netflix-archaius</artifactId>
-				<version>${springcloud.netflix.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework.cloud</groupId>
-						<artifactId>spring-cloud-starter</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-starter-actuator</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
-				<version>3.2.10</version>
+				<version>${springcloud.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework.cloud</groupId>
@@ -140,51 +120,13 @@
 			</dependency>
 
 			<dependency>
-				<groupId>com.netflix.netflix-commons</groupId>
-				<artifactId>netflix-commons-util</artifactId>
-				<version>0.3.0</version>
+				<groupId>com.fasterxml.jackson.datatype</groupId>
+				<artifactId>jackson-datatype-joda</artifactId>
+				<version>${fasterxml.jackson.datatype.version}</version>
 				<exclusions>
 					<exclusion>
-						<groupId>javax.inject</groupId>
-						<artifactId>javax.inject</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.archaius</groupId>
-				<artifactId>archaius-core</artifactId>
-				<version>0.7.12</version>
-				<exclusions>
-					<exclusion>
-						<groupId>commons-logging</groupId>
-						<artifactId>commons-logging</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.servo</groupId>
-				<artifactId>servo-core</artifactId>
-				<version>0.13.2</version>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.hystrix</groupId>
-				<artifactId>hystrix-core</artifactId>
-				<version>1.5.18</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.hdrhistogram</groupId>
-						<artifactId>HdrHistogram</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>com.netflix.hystrix</groupId>
-				<artifactId>hystrix-serialization</artifactId>
-				<version>1.5.18</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.hdrhistogram</groupId>
-						<artifactId>HdrHistogram</artifactId>
+						<groupId>joda-time</groupId>
+						<artifactId>joda-time</artifactId>
 					</exclusion>
 				</exclusions>
 			</dependency>
