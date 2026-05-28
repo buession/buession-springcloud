@@ -179,6 +179,15 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
 			<exclusions>
@@ -245,12 +254,11 @@
 					<groupId>io.netty</groupId>
 					<artifactId>netty-transport-udt</artifactId>
 				</exclusion>
+				<exclusion>
+					<groupId>org.jctools</groupId>
+					<artifactId>jctools-core</artifactId>
+				</exclusion>
 			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jetbrains.kotlin</groupId>
-			<artifactId>kotlin-stdlib</artifactId>
 		</dependency>
 
 		<dependency>
