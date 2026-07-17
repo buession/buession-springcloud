@@ -8,6 +8,11 @@
 - [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v4.0.1)
 
 
+### 🐞 Bug 修复
+
+- **buession-springcloud-gateway** 删除错误依赖引用
+
+
 ---
 
 

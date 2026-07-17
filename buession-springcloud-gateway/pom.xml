@@ -57,6 +57,7 @@
 			<artifactId>buession-springcloud-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>com.buession.springcloud</groupId>
 			<artifactId>buession-springcloud-ribbon</artifactId>
@@ -67,6 +68,7 @@
 			<artifactId>buession-springcloud-hystrix</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
