@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<springframework.cloud.kubernetes.version>3.3.0</springframework.cloud.kubernetes.version>
+		<springframework.cloud.kubernetes.version>3.3.3</springframework.cloud.kubernetes.version>
 	</properties>
 
 	<dependencies>

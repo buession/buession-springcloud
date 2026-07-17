@@ -6,6 +6,20 @@
 ### 🔨依赖升级
 
 - [依赖库版本升级和安全漏洞修复](https://github.com/buession/buession-parent/releases/tag/v4.0.1)
+- [spring-cloud-commons](https://projects.spring.io/spring-cloud/spring-cloud-commons/) 版本升级至 4.3.3
+- [spring-cloud-context](https://projects.spring.io/spring-cloud/spring-cloud-context/) 版本升级至 4.3.3
+- [spring-cloud-bus](https://projects.spring.io/spring-cloud/spring-cloud-bus/) 版本升级至 4.3.2
+- [spring-cloud-config-client](https://projects.spring.io/spring-cloud/spring-cloud-config-client/) 版本升级至 4.3.4
+- [spring-cloud-config-server](https://projects.spring.io/spring-cloud/spring-cloud-config-server/) 版本升级至 4.3.4
+- [spring-cloud-starter-consul-discovery](https://projects.spring.io/spring-cloud/spring-cloud-starter-consul-discovery/) 版本升级至 4.3.3
+- [spring-cloud-starter-openfeign](https://projects.spring.io/spring-cloud/spring-cloud-starter-openfeign/) 版本升级至 4.3.3
+- [spring-cloud-starter-gateway](https://projects.spring.io/spring-cloud/spring-cloud-starter-gateway/) 版本升级至 4.3.5
+- [spring-cloud-starter-gateway-server-webflux](https://projects.spring.io/spring-cloud/spring-cloud-starter-gateway-server-webflux/) 版本升级至 4.3.5
+- [spring-cloud-starter-kubernetes-client](https://cloud.spring.io/spring-cloud-starter-kubernetes-client) 版本升级至 3.3.3
+- [spring-cloud-starter-loadbalancer](https://projects.spring.io/spring-cloud/spring-cloud-starter-loadbalancer/) 版本升级至 4.3.3
+- [com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config](https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-config) 版本升级至 2025.1.0.0
+- [com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery](https://github.com/alibaba/spring-cloud-alibaba/tree/2.2.x/spring-cloud-alibaba-starters/spring-cloud-starter-alibaba-nacos-discovery) 版本升级至 2025.1.0.0
+- [openfeign](https://github.com/OpenFeign/feign) 版本升级至 13.13
 
 
 ### 🐞 Bug 修复

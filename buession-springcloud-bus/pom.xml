@@ -93,7 +93,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-bus</artifactId>
-			<version>${springcloud.version}</version>
+			<version>4.3.2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>

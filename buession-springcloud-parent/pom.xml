@@ -70,10 +70,11 @@
 	</modules>
 
 	<properties>
-		<buession.version>4.0.0</buession.version>
-		<buession.springboot.version>4.0.0</buession.springboot.version>
-		<springcloud.version>4.3.0</springcloud.version>
-		<alibaba.cloud.nacos.version>2025.0.0.0</alibaba.cloud.nacos.version>
+		<buession.version>4.0.1</buession.version>
+		<buession.springboot.version>4.0.1</buession.springboot.version>
+		<springframework.cloud.version>4.3.3</springframework.cloud.version>
+		<springframework.cloud.config.version>4.3.4</springframework.cloud.config.version>
+		<alibaba.cloud.nacos.version>2025.1.0.0</alibaba.cloud.nacos.version>
 	</properties>
 
 	<dependencyManagement>
@@ -98,7 +99,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-stream</artifactId>
-				<version>${springcloud.version}</version>
+				<version>${springframework.cloud.version}</version>
 				<exclusions>
 					<exclusion>
 						<groupId>org.springframework.cloud</groupId>

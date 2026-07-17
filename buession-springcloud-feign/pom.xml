@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<openfeign.version>13.6</openfeign.version>
+		<openfeign.version>13.13</openfeign.version>
 	</properties>
 
 	<dependencies>
@@ -85,7 +85,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>${springcloud.version}</version>
+			<version>${springframework.cloud.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.cloud</groupId>
