@@ -7,7 +7,7 @@
 		<groupId>com.buession.springcloud</groupId>
 		<artifactId>buession-springcloud-parent</artifactId>
 		<relativePath>../buession-springcloud-parent</relativePath>
-		<version>3.0.1</version>
+		<version>4.0.0</version>
 	</parent>
 	<artifactId>buession-springcloud-kubernetes</artifactId>
 	<url>https://springcloud.buession.com/</url>
@@ -52,7 +52,7 @@
 	</issueManagement>
 
 	<properties>
-		<springframework.cloud.kubernetes.version>2.1.9</springframework.cloud.kubernetes.version>
+		<springframework.cloud.kubernetes.version>3.3.0</springframework.cloud.kubernetes.version>
 	</properties>
 
 	<dependencies>
@@ -113,10 +113,6 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.findbugs</groupId>
-			<artifactId>jsr305</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

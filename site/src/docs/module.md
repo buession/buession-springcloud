@@ -39,6 +39,3 @@
 
 ### buession-springcloud-stream
 * [Spring Cloud](https://spring.io/projects/spring-cloud) Stream
-
-### buession-springcloud-zuul
-* [Spring Cloud](https://spring.io/projects/spring-cloud) Zuul

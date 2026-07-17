@@ -5,7 +5,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.buession.springcloud/buession-springcloud-common.svg)](https://search.maven.org/search?q=g:com.buession.springcloud)
 [![GitHub release](https://img.shields.io/github/release/buession/buession-springcloud.svg)](https://github.com/buession/buession-springcloud/releases)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Java support](https://img.shields.io/badge/Java-8+-green?logo=java&logoColor=white)](https://openjdk.java.net/)
+[![Java support](https://img.shields.io/badge/Java-17+-green?logo=java&logoColor=white)](https://openjdk.java.net/)
 [![Javadocs](http://www.javadoc.io/badge/com.buession.springcloud/buession-springcloud-common.svg)](http://www.javadoc.io/doc/com.buession.springcloud/buession-springcloud-common)
 
 
@@ -18,7 +18,7 @@
 
 ## Requirements
 
-- JDK 1.8+
+- JDK 17+
 
 ## Introduction
 

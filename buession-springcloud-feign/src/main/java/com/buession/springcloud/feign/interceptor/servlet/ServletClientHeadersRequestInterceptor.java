@@ -21,17 +21,17 @@
  * +------------------------------------------------------------------------------------------------+
  * | License: http://www.apache.org/licenses/LICENSE-2.0.txt 										|
  * | Author: Yong.Teng <webmaster@buession.com> 													|
- * | Copyright @ 2013-2023 Buession.com Inc.														|
+ * | Copyright @ 2013-2025 Buession.com Inc.														|
  * +------------------------------------------------------------------------------------------------+
  */
 package com.buession.springcloud.feign.interceptor.servlet;
 
 import com.buession.springcloud.feign.interceptor.AbstractClientHeadersRequestInterceptor;
 import feign.RequestTemplate;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -47,7 +47,7 @@ public class ServletClientHeadersRequestInterceptor extends AbstractClientHeader
 	/**
 	 * 构造函数
 	 */
-	public ServletClientHeadersRequestInterceptor(){
+	public ServletClientHeadersRequestInterceptor() {
 		super();
 	}
 
@@ -61,12 +61,12 @@ public class ServletClientHeadersRequestInterceptor extends AbstractClientHeader
 	 *
 	 * @since 2.1.0
 	 */
-	public ServletClientHeadersRequestInterceptor(Set<String> allowedHeaderNames, Set<String> ignoreHeaderNames){
+	public ServletClientHeadersRequestInterceptor(Set<String> allowedHeaderNames, Set<String> ignoreHeaderNames) {
 		super(allowedHeaderNames, ignoreHeaderNames);
 	}
 
 	@Override
-	public void apply(final RequestTemplate requestTemplate){
+	public void apply(final RequestTemplate requestTemplate) {
 		try{
 			ServletRequestAttributes requestAttributes =
 					(ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
